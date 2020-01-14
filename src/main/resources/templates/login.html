@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<html lang="en">
 
-
+        
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +9,44 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/static/login.css" />
-    <title>Login</title>
-
+    <title>Portly Login</title>
+    
 </head>
 
 <body>
-LOGIN!
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/home"><img src="/portly_transparent_100x40.png" alt="portly"></a>
+                <a class="nav-link active" href="/home">Home</a>
+                <a class="nav-link" href="/login">Anmelden</a>
+                <a class="nav-link" href="/registration">Registrieren</a>
+              </nav>
+              
+    
+    <div class="container h-100 ">
+        <div class="row h-100 justify-content-center align-items-center ">
+                <div class="col-4" id="logo" >
+                        <img src="/portly_transparent_300x120.png" alt="logo">
+                    <form method="post">
+                            <div class="form-group">
+                              <label for="userID">Benutzer-ID</label>
+                              <input class="form-control" id="userID" name="username">
+                              <small id="userIdHelp" class="form-text text-muted">Geben Sie hier ihre Benutzer-ID ein</small>
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Passwort</label>
+                              <input type="password"  name ="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <input type="submit" class="btn btn-primary">
+                          </form>
+                </div>
+               
+                
+        </div>
+     
+    </div>
 
-<footer>
-
-</footer>
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 </body>
 </html>

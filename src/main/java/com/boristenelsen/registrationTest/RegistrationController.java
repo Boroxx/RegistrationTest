@@ -5,6 +5,8 @@ import com.boristenelsen.registrationTest.dao.User;
 import com.boristenelsen.registrationTest.dto.UserDto;
 import com.boristenelsen.registrationTest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,10 +23,25 @@ public class RegistrationController {
    @Autowired
    private UserService userService;
 
+    @GetMapping("/home")
+    public String index(){
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            String username = ((UserDetails)principal).getUsername();
+            System.out.println(username);
+        } else {
+            String username = principal.toString();
+            System.out.println(username);
+        }
+        return "home";
+    }
+
     @GetMapping("/login")
     public String login(){
         return "login";
     }
+
     @GetMapping("/registration")
     public String getregistration(Model model){
 
