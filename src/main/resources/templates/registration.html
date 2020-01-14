@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/login.css" />
+    <title>Registration</title>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/registration"><img src="/portly_transparent_100x40.png" alt="portly"></a>
+    <a class="nav-link active" href="/registration">Home</a>
+    <a class="nav-link" href="/login">Anmelden</a>
+    <a class="nav-link" href="/registration">Registrieren</a>
+</nav>
+
+<div  class="d-flex justify-content-center">
+
+    <blockquote class="blockquote">
+        <p class="mb-2">Hier können Sie sich einfach und leicht registrieren. Die Login-Daten bekommen sie per Email geschickt. <br>
+        </p>
+        <footer class="blockquote-footer">Gründer und Entwickler von <cite title="Source Title">Portly</cite></footer>
+    </blockquote>
+
+</div>
+<div class="container h-100 ">
+    <div class="row h-100 justify-content-center align-items-center ">
+        <div class="col-4" id="logo" >
+            <img src="/portly_transparent_300x120.png" alt="logo">
+
+            <form action="/registration" th:object="${userDto}" method="post">
+                <div class="form-group">
+                    <label for="vornameId">Vorname:</label>
+                    <input class="form-control" id="vornameId" th:field="*{vorname}">
+                    <small id="vornameIdHelp" class="form-text text-muted">Geben Sie hier ihre Vornamen ein</small>
+                    <div class="alert alert-warning " role="alert" th:if="${#fields.hasErrors('vorname')}">
+                         Vorname nicht valide
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+                    <label for="nachnameId" >Nachname:</label>
+                    <input class="form-control" id="nachnameId" th:field="*{nachname}">
+                    <small id="nachnameIdHelp" class="form-text text-muted">Geben Sie hier ihren Nachnamen ein</small>
+                    <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('nachname')}">
+                        Nachname nicht valide
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="phonenumberId" >Telefon:</label>
+                    <input class="form-control" id="phonenumberId" th:field="*{phonenumber}">
+                    <small id="phonenumberIdHelp" class="form-text text-muted">Geben Sie hier ihre Telefonnummer ein</small>
+                    <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('phonenumber')}">
+                        Telefonnummer nicht valide
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailId" >Email:</label>
+                    <input class="form-control" id="emailId" th:field="*{email}">
+                    <small id="emailHelpId" class="form-text text-muted">Geben Sie hier ihre Email ein</small>
+                    <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('email')}">
+                        Email nicht valide oder bereits vergeben!
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Passwort</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" th:field="*{password}">
+                    <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('password')}">
+                        Passwort muss mindestens 8 Zeichen sowie Groß- und Kleinbuchstaben enthalten<br>
+                        Ausserdem sollte auch ein Sonderzeichen mit enthalten sein.
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrieren</button>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<footer>
+
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+</body>
+</html>
