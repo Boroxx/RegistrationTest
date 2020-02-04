@@ -1,7 +1,6 @@
 package com.boristenelsen.registrationTest.services;
 
 
-import com.boristenelsen.registrationTest.dao.Role;
 import com.boristenelsen.registrationTest.dao.User;
 import com.boristenelsen.registrationTest.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,7 @@ public class PortlyUserDetailsService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
+    @Override
     public UserDetails loadUserByUsername(String email) {
         User user = userRepository.findByEmail(email);
         if(user ==null){
@@ -34,19 +34,20 @@ public class PortlyUserDetailsService implements UserDetailsService {
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked= true;
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword().toLowerCase(), enabled,accountNonExpired,credentialsNonExpired,
-                accountNonLocked,getAuthorities(user.getRoles()));
+
+
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), enabled,accountNonExpired,credentialsNonExpired,
+                accountNonLocked,getAuthorities());
 
 
 
 
     }
 
-    private Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
+    private Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        for(Role r: roles){
-            authorities.add(new SimpleGrantedAuthority(r.getName()));
-        }
+            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+
         return authorities;
     }
 

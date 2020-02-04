@@ -21,11 +21,13 @@ public class User {
     private String vorname;
     private String nachname;
     private long phonenumber;
+
+    @Column(name="user")
+
     private String email;
     private String password;
 
-    @ManyToMany
-    private List<Role> roles;
+    private String role;
 
 
 }

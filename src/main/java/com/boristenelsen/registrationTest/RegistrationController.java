@@ -23,20 +23,34 @@ public class RegistrationController {
    @Autowired
    private UserService userService;
 
-    @GetMapping("/home")
-    public String index(){
 
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal instanceof UserDetails) {
-            String username = ((UserDetails)principal).getUsername();
-            System.out.println(username);
-        } else {
-            String username = principal.toString();
-            System.out.println(username);
-        }
+    @GetMapping("/home")
+    public String index(Model model){
+
+
         return "home";
     }
 
+    @GetMapping("/home/gehwegabsenkung")
+    public String gehwegabsenkung(Model model){
+
+
+        return "gehwegabsenkung";
+    }
+
+    @GetMapping("/home/gehwegabsenkung2")
+    public String gehwegabsenkungsec(Model model){
+
+
+        return "gehwegabsenkung2";
+    }
+    @GetMapping("/home/dashboard")
+    public String dashboard(Model model){
+
+        model.addAttribute("fullusername", getFullUserName());
+        model.addAttribute("telefon", getTelefon());
+        return"uebersicht";
+    }
     @GetMapping("/login")
     public String login(){
         return "login";
@@ -66,13 +80,12 @@ public class RegistrationController {
                 bindingResult.rejectValue("email","message.regError");
                 return "registration";
             }
-
-
         }
-
-
         return"redirect:/login" ;
     }
+
+
+
 
 
     /*createUserAccount() ruft Userservice auf welcher sich um das Data Transfer Objekt User kümmert*/
@@ -81,5 +94,31 @@ public class RegistrationController {
         registered = userService.registerNewAccount(userDto);
         return registered;
     }
+
+    private String getFullUserName(){
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            String email = ((UserDetails)principal).getUsername();
+            String name = userService.getUserName(email);
+            return name;
+
+        } else {
+            return "";
+        }
+    }
+
+    private String getTelefon(){
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            String email = ((UserDetails)principal).getUsername();
+            Long telefon = userService.getTelefon(email);
+            return telefon.toString();
+
+        } else {
+            return "";
+        }
+    }
+
+
 
 }

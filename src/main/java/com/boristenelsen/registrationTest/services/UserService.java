@@ -5,14 +5,21 @@ import com.boristenelsen.registrationTest.dao.User;
 import com.boristenelsen.registrationTest.dto.UserDto;
 import com.boristenelsen.registrationTest.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
 
-    @Autowired
-    UserRepository userRepository;
+  @Autowired
+  UserRepository userRepository;
+
+
+
+  @Autowired
+  BCryptPasswordEncoder bCryptPasswordEncoder;
 
     /*EXCEPTIONS NOCH NICHT IMPLEMENTIERT*/
 
@@ -27,10 +34,16 @@ public class UserService {
         user.setNachname(userDto.getNachname());
         user.setEmail(userDto.getEmail());
         user.setPhonenumber(userDto.getPhonenumber());
-        user.setPassword(userDto.getPassword());
+        user.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
+
+
+
+
         userRepository.save(user);
         return new User();
     }
+
+
 
     private boolean emailExists(String email) {
         User registered = userRepository.findByEmail(email);
@@ -38,5 +51,16 @@ public class UserService {
 
         return false;
 
+    }
+
+    /*Gibt Vor und Nachnamen für die Übersicht im Dashboard zurück*/
+    public String getUserName(String email){
+        User user = userRepository.findByEmail(email);
+        return user.getVorname() + " " + user.getNachname();
+    }
+
+    public long getTelefon(String email) {
+        User user = userRepository.findByEmail(email);
+        return user.getPhonenumber();
     }
 }
