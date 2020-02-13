@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title>User Dashboard</title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="/login.css" rel="stylesheet" type="text/css"/>
+    <link href="/all.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home"><img alt="portly" src="/portly_transparent_100x40.png"></a>
+    <a class="nav-link active" href="/home">Home</a>
+    <a class="nav-link" href="/login" sec:authorize="!isAuthenticated()">Anmelden</a>
+    <a class="nav-link" href="/registration" sec:authorize="!isAuthenticated()">Registrieren</a>
+
+
+    <a class="nav-link" href="/home/dashboard" sec:authorize="isAuthenticated()">Dashboard</a>
+    <a class="nav-link" href="/logout" sec:authorize="isAuthenticated()">Abmelden</a>
+</nav>
+
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-bars"></i>
+                Angebotsanfragen</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-user"></i>
+                Nachunternehmer-Katalog</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-info-circle"></i>
+                Aktive Aufträge</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-question-circle"></i>
+                Position</a>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+        <div class="container-fluid">
+            <h1 class="mt-4">Wilkommen, Admin!</h1>
+            <p>Hier hast du eine Übersicht aller Angebotsaufforderungen der Nutzer</p>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Status</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefon</th>
+                <th scope="col">Gehweg</th>
+                <th scope="col">Preis in Euro</th>
+                <th scope="col">Aktion</th>
+                <th scope="col">Aktion</th>
+                <th scope="col">Details</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="bestellung : ${bestellungen}">
+                <td> <span style="color: orangered;" th:unless="${bestellung.status}">
+                                              <i class="fas fa-minus-circle"></i>
+                                        </span>
+                    <span style="color: limegreen;" th:if="${bestellung.status}">
+                                              <i class="fas fa-check"></i>
+                                        </span></td>
+                <td th:text="${bestellung.name}">Euro</td>
+                <td th:text="${bestellung.email}"></td>
+                <td th:text="${bestellung.telefon}"></td>
+                <td th:text="${bestellung.gehwegm2}"></td>
+                <td th:text="${bestellung.preis}"></td>
+                <td><a class="btn btn-primary" th:href="'/admin/createAngebot/'+${bestellung.id}">Angebot erstellen</a>
+                </td>
+                <td><a th:href="@{'/admin/vergabe/' + ${bestellung.id}}"><i class="fas fa-check"></i></a></td>
+                <td><a th:href="@{'/home/dashboard/' + ${bestellung.id}}"><span style="color:dodgerblue"><i
+                        class="fas fa-info-circle fa-2x"></i></span></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+
+</body>
+</html>

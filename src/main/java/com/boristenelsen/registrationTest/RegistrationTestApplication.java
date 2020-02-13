@@ -1,15 +1,15 @@
 package com.boristenelsen.registrationTest;
 
+import com.boristenelsen.registrationTest.properties.FileStorageProperties;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
-@EnableAutoConfiguration
-@ComponentScan
+
+@EnableConfigurationProperties(FileStorageProperties.class)
 @Configuration
+@SpringBootApplication
 public class RegistrationTestApplication {
 
 	public static void main(String[] args) {

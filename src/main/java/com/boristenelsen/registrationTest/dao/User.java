@@ -1,14 +1,9 @@
 package com.boristenelsen.registrationTest.dao;
 
 
-import com.boristenelsen.registrationTest.annotations.PasswordMatches;
-import com.boristenelsen.registrationTest.annotations.ValidEmail;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity
 @Table(name="user")
@@ -26,6 +21,10 @@ public class User {
 
     private String email;
     private String password;
+
+
+    private String stadt_plz;
+    private String strasse_hausnummer;
 
     private String role;
 

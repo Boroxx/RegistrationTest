@@ -26,27 +26,25 @@ public class PortlyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) {
         User user = userRepository.findByEmail(email);
-        if(user ==null){
+        if (user == null) {
             throw new UsernameNotFoundException("Kein Benutzer gefunden" + email);
         }
 
         boolean enabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
-        boolean accountNonLocked= true;
+        boolean accountNonLocked = true;
 
 
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), enabled,accountNonExpired,credentialsNonExpired,
-                accountNonLocked,getAuthorities());
-
-
-
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), enabled, accountNonExpired, credentialsNonExpired,
+                accountNonLocked, getAuthorities(user));
 
     }
 
-    private Collection<? extends GrantedAuthority> getAuthorities() {
+    private Collection<? extends GrantedAuthority> getAuthorities(User user) {
         List<GrantedAuthority> authorities = new ArrayList<>();
-            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        String role = user.getRole();
+        authorities.add(new SimpleGrantedAuthority(role));
 
         return authorities;
     }

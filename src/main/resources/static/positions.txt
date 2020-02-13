@@ -1,0 +1,376 @@
+01011053;St;Vermessungspunkte sichern
+01011071;m3;Graben provisorisch bis OK verf?llen wg. Aufrechterhaltung des Verkehrs
+01012040;St;Fuág„ngerbehelfsbr?cke herstellen, vorhalten, beseitigen                
+01012050;m2;Behelfs?berfahrt Fahrbahn herstellen, vorhalten, beseitigen             
+01012060;St;Einholen verkehrsrechtlicher Genehmigung und Anordnung, vereinfachtes Verfahren
+01012070;St;Einholen verkehrsrechtlicher Genehmigungen und Anordnungen              
+01012090;St;Verkehrslenkung in der Umleitungsstrecke                                
+01012095;m;L„ngsabsperrung aufstellen, unterhalten, abbauen                        
+01012100;m;Bauzaun aufstellen, vorhalten, r„umen                                   
+01012110;St;Baustellensignalanlage 2-Phasig aufstellen,umsetzen, r„umen             
+01012112;St;Baustellensignalanlage 3-Phasig aufstellen,umsetzen, r„umen             
+01012114;St;Baustellensignalanlage 4-Phasig aufstellen,umsetzen, r„umen             
+01012120;Tag;Baustellensignalanlage (2-phasig) betreiben                             
+01012122;Tag;Baustellensignalanlage (3-phasig) betreiben                             
+01012124;Tag;Baustellensignalanlage (4-phasig) betreiben                             
+01012130;m;Fahrbahnmarkierung herstellen in gelber Farbe, beseitigen               
+01012140;St;Richtungspfeil in gelber Farbe herstellen, beseitigen                   
+01012150;m;Halte- oder Wartelinie, Breite 50 cm aus gelber Folie herstellen und entfernen.
+01012220;m2;Rasen ans„en                                                            
+01012230;St;Stammschutz eines Baumes mit einem Stammumfang bis 1,50 m               
+01012240;St;Stammschutz eines Baumes mit einem Stammumfang von 1,51 m bis 3,00 m    
+01012245;m2;Strauch, Bodendecker oder „hnliches ausmachen und einpflanzen           
+01012250;m2;Busch und Strauchwerk beseitigen, entsorgen                             
+01012260;m;Heckengeh”lz roden                                                      
+01012308;St;Leitpfosten aufnehmen und setzen                                        
+01012310;St;Pfosten mit oder ohne Schild (einpfostig) aufnehmen                     
+01012312;St;Absperrung, Schild (mehrpfostig) aufnehmen                              
+01012314;St;Pfosten mit oder ohne Schild (einpfostig) in Beton setzen               
+01012316;St;Absperrung, Schild (mehrpfostig) in Beton setzen                        
+01012320;m3;Mauerwerk ?ber Gel„nde abbrechen                                        
+01021010;m3;Oberboden abtragen laden f”rdern aufsetzen, Abtrag bis 20cm             
+01021020;m3;Oberboden abtragen laden abfahren. Boden geht ins Eigentum des AN ?ber  
+01021031;m3;Oberfl„chenbefestigung (ungebunden) aufbrechen, lagern                  
+01021041;m3;Oberfl„chenbefestigung (ungebunden) aufbrechen, ausheben, f”rdern und abfahren 
+01022020;m;Bordstein auf Beton aufnehmen                                           
+01022030;m;Kantenstein aufnehmen                                                   
+01022040;m;1-Zeilige Entw„sserungsrinne einschl. Bettung aufnehmen                 
+01022042;m;2-Zeilige Entw„sserungsrinne einschl. Bettung aufnehmen                 
+01022044;m;3-Zeilige Entw„sserungsrinne einschl. Bettung aufnehmen                 
+01022050;m;Entw„sserungsrinne (Plattengr”áe bis 300 mm) in Beton aufnehmen         
+01022055;m;Entw„sserungsrinne (Plattengr”áe bis 500 mm) in Beton aufnehmen         
+01022060;m2;Betonverbundpflaster aufnehmen                                          
+01022070;m2;Groápflaster (Naturstein z.B. 14/17) aufnehmen                          
+01022080;m2;Kleinpflaster (Naturstein z.B. 9/11 oder 9/9) aufnehmen                 
+01022090;m2;Mosaikpflaster (Naturstein z.B. 4/6) aufnehmen                          
+01022100;m2;Betongehwegplatte aufnehmen                                             
+01023010;m;Asphl. Oberbau bis 6 cm senkrecht auftrennen                            
+01023020;m;Asphl. Oberbau bis 12 cm senkrecht auftrennen                           
+01023030;m;Asphl. Oberbau bis 18 cm senkrecht auftrennen                           
+01023040;m;Asphl. Oberbau bis 24 cm senkrecht auftrennen                           
+01023050;m;Asphl. Oberbau ?ber 24 cm, je 1 cm Mehrst„rke auftrennen                
+01023060;m2;Bit. Befestigung bis 6 cm, nicht gef„hrlich, PAK <1000mg/kg aufbrechen + laden.
+01023070;m2;Bit. Befestigung bis 12 cm, nicht gef„hrlich, PAK <1000mg/kg aufbreche  n + laden.
+01023080;m2;Bit. Befestigung bis 18 cm, nicht gef„hrlich, PAK <1000mg/kg aufbreche  n + laden.
+01023090;m2;Bit. Befestigung bis 24 cm, nicht gef„hrlich, PAK <1000mg/kg aufbreche  n + laden.
+01023100;m2;Bit. Befestigung ?ber 24 cm, je 1cm Mehrst„rke aufbrechen               
+01023110;m;Bit. Oberbau bis 6 cm zur?ckschneiden                                   
+01023120;m;Bit. Oberbau bis 12 cm zur?ckschneiden                                  
+01023130;m;Bit. Oberbau bis 18 cm zur?ckschneiden                                  
+01023140;m;Bit. Oberbau bis 24 cm zur?ckschneiden                                  
+01023150;m;Bit. Oberbau ?ber 24 cm, je 1 cm Mehrst„rke zur?ckschneiden             
+01023190;m3;Bit. Befestigung, nicht gef„hrlich, zur Anlage des AG transportieren    
+01023210;m3;Bit. Befestigung PAK<=25mg/kg zur Aufbereitungsanlage des AN transp. + entsorgen  
+01023220;t;Aufbruchmaterial mit PAK<1000mg/kg als Zulage bit. Befestigung entsorgen  
+01024010;m;Betondecke bis 15 cm trennen                                            
+01024020;m;Betondecke ?ber 15 cm, je 1 cm/m Mehrst„rke trennen                     
+01024030;m2;Betondecke (unbewehrt) bis 15 cm aufbrechen, abfahren                   
+01024040;m2;Betondecke (unbewehrt) ?ber 15 cm Mehrst„rken je 1 cm/m2, aufbrechen, abfahren 
+01024050;m2;Betondecke (bewehrt) bis 15 cm aufbrechen, abfahren                     
+01024060;m2;Betondecke (bewehrt) ?ber 15 cm Mehrst„rken je 1 cm/m2, aufbrechen, abfahren  
+01025010;m2;Betontragschicht bis 15 cm aufbrechen, abfahren                         
+01025020;m2;Betontragschicht ?ber 15 cm, Mehrst„rken je 1cm/m2, aufbrechen, abfahren  
+01025040;m2;Ungebundene Tragschichtbefestigung aufbrechen, laden und abfahren       
+01025060;m2;Ungeb. Tragschichtbef. ?ber 20cm Mehrst„rken je 1 cm/m2 aufbr., laden + abfahren 
+01026010;St;Armaturenkappe im Graben aufnehmen                                      
+01026020;St;Armaturenkappe beseitigen                                               
+01031020;m3;Boden ausheben (Homogenbereiche A-E)                                    
+01031080;m3;Boden von Hand ausheben                                                 
+01031100;m3;Zulage f?r feste B”den l”sen und laden                                  
+01031150;St;An- /Abfahrt eines Saugbagger mit Besatzung                             
+01031160;m3;Saugwagen, Boden mit Fremdbesteinteilen l”sen und saugen. Als Zulage.   
+01031200;m3;Boden laden und zur Anlage S?chtelner Straáe transportieren             
+01031220;m3;Boden laden zur Anlage des AN / Deponie transportieren                  
+01031260;m3;Boden zwischenlagern                                                    
+01031270;m3;Entsorgungsgeb?hr f?r Material der Einstufung Z0, Z1.1, Z1.2            
+01031276;t;Geb?hr f?r Material der Einstufung Z 2, Zulage zu Boden Z0, Nachweis    
+01031299;t;Deponiegeb?hren f?r Gr?nabf„lle aller Art                               
+01032010;m2;Waagerechter oder senkrechter Normverbau bis 1,25 m herstellen          
+01032020;m2;Waagerechter oder senkrechter Normverbau bis 2,5 m herstellen           
+01032030;m2;Waagerechter oder senkrechter Normverbau, H”he bis 5 m                  
+01032060;St;Umsteifen des Verbaus, eigene Arbeiten des AG                           
+01032070;m2;Verbau mit Verbauplatten bis 4 m herstellen                             
+01032095;m2;Verbau aus Stahldielenkammern bis 5,0 m H”he herstellen                 
+01032097;m2;Baugrubenw„nde mit einschieniger innerst„discher Linearverbau bis T=4,50 m verb
+01033010;m;Kabel sichern Gr. 1 + 2                                                 
+01033030;m;Kabel sichern Gr. 3 + 4                                                 
+01033050;m;Rohrleitung bis DN 150 sichern                                          
+01033070;St;Erschwerniszulage f?r kreuzende Leitungen (Versorgungsgraben)           
+01033100;m;Hindernis: Rohrleitung Gusseisen abbrechen, laden, entsorgen            
+01033110;m;Hindernis: Rohrleitung duktiles Gusseisen abbrechen, laden, entsorgen   
+01033130;m;Hindernis: Rohrleitung Kunststoff abbrechen, laden, entsorgen           
+01033151;m;Steinzeugrohr (DN 200 - 600) abbrechen, laden, entsorgen                
+01033152;m;Steinzeugrohr (DN 700 - 1400) abbrechen, laden, entsorgen               
+01033161;m;Beton/Stahlbetonrohr bis DN 600 abbrechen, laden, entsorgen             
+01033162;m;Beton/Stahlbetonrohr (DN 700 - 1400) abbrechen, laden, entsorgen        
+01033180;m;Hindernis: Kabel                                                        
+01033300;m3;Hindernis: Beton                                                        
+01033310;m3;Hindernis: Stahlbeton                                                   
+01033330;m3;Hindernis: Mauerwerk                                                    
+01033350;m3;Erschwerniszulage enge Verh„ltnisse                                     
+01033360;m3;Verkarren bis 50 m (Erschwerniszulage)                                  
+01033370;m3;Verkarren ?ber 50 m (Erschwerniszulage)                                 
+01033420;St;Straáenablauf einschl. Fundament abbrechen                              
+01034010;m;Minierung herstellen                                                    
+01034020;St;Minierung f?r die šbernahme von Hausanschl?sse herstellen               
+01034050;m;Bohrung bis 90 mm Durchmesser herstellen, ohne Rohrlieferung            
+01034060;m;Bohrung bis 150 mm Durchmesser herstellen, ohne Rohrlieferung           
+01034070;m;Bohrung bis 90 mm Durchmesser herstellen, mit Rohrlieferung             
+01034080;m;Bohrung bis 150 mm Durchmesser herstellen, mit Rohrlieferung            
+01035011;m3;Leitungszone mit Grubensand 0/2 verf?llen, einschl. Lieferung           
+01035020;m3;Sand f?r Leitungszone aus Anlage des AG transportieren + einbauen       
+01035021;m3;Leitungszone mit RC-Sand 0/2 Klasse RC I, aus Anlage des AN liefern + verf?llen 
+01035024;m3;Leitungszone mit gelagerten Boden verf?llen, einschl. Boden anfahren    
+01035045;m;Trassenwarnband verlegen                                                
+01035050;m3;Kies-Sandgemisch 0/32 aus nat?rlichen Mineralstoffen liefern und einbauen
+01035060;m3;F?llstoff 0-32 zur Verf?llung, aus Anlage des AG transportieren + verf?llen
+01035065;m3;Verf?llmaterial aus RC-Material Klasse RC I aus Anlage des AN liefern,einbauen
+01035070;m3;Nat?rlicher Mineralstoff 0/32, frostsicher,EV2 mind. 120 MPa, liefern,einbauen 
+01035080;m3;Kies 0/32, frostsicher, aus der Anlage des AG transportieren und einbauen
+01035085;m3;RC I Kies 0/32, frostsicher, aus Anlage AN, EV2 mind. 120 Mpa, liefern,einbauen
+01035090;m3;Graben mit gelagerten Boden verf?llen, einschl. Boden anfahren          
+01035100;m3;Rollkies 16/32 liefern und einbauen                                     
+01035110;m;Auftrieb Sicherung der Rohrleitung f?r den Einbau von Fl?ssigboden      
+01035120;m3;Koordination und Unterst?tzung beim Einsatz von NEW Fl?ssigboden        
+01036010;m3;Beton C 8/10 f?r Auff?llungen liefern und einbauen                      
+01036040;m3;Beton C 12/15 f?r Widerlager liefern und einbauen                       
+01037010;m2;Wurzelschutzplatten transportieren, einbauen                            
+01037020;m;Wurzelschutzplatten schneiden                                           
+01037030;m;Wurzelschutzplatten verbinden                                           
+01040010;St;An- und Abtransport eines Radwegefertigers                              
+01040020;St;An- und Abfahren eines Fertigers                                        
+01041005;m2;Asphalttragschicht AC 16 T S, D=6 cm bis 10 m2 liefern und einbauen     
+01041010;m2;Asphalttragschicht AC 16 T S, D=6 cm bis 50 m2 liefern und einbauen     
+01041020;m2;Asphalttragschicht AC 16 T S, D=6 cm liefern und einbauen               
+01041025;m2;Asphalttragschicht AC 22 T S, D=6,5-8 cm bis 10 m2 liefern und einbauen
+01041030;m2;Asphalttragschicht AC 22 T S, D=6,5-8 cm bis 50 m2 liefern und einbauen  
+01041040;m2;Asphalttragschicht AC 22 T S, D=6,5-8 cm liefern und einbauen     
+01041045;m2;Asphalttragschicht AC 32 T S, D=8,5-10 cm bis 10 m2 liefern und einbauen  
+01041050;m2;Asphalttragschicht AC 32 T S, D=8,5-10 cm bis 50 m2 liefern und einbauen 
+01041060;m2;Asphalttragschicht AC 32 T S, D=8,5-10 cm liefern und einbauen          
+01041065;m2;Asphalttragschicht AC 32 T S, D=10,5-12 cm bis 10 m2 liefern und einbauen
+01041070;m2;Asphalttragschicht AC 32 T S, D=10,5-12 cm bis 50 m2 liefern und einbauen    
+01041080;m2;Asphalttragschicht AC 32 T S, D=10,5-12 cm liefern und einbauen         
+01041085;m2;Asphalttragschicht AC 32 T S, D=12,5-14 bis 10 m2 cm liefern und einbauen 
+01041090;m2;Asphalttragschicht AC 32 T S, D=12,5-14 bis 50 m2 cm liefern und einbauen 
+01041100;m2;Asphalttragschicht AC 32 T S, D=12,5-14 cm liefern und einbauen         
+01041105;m2;Asphalttragschicht AC 32 T S, D=14,5-16 cm bis 10 m2 liefern und einbauen 
+01041110;m2;Asphalttragschicht AC 32 T S, D=14,5-16 cm bis 50 m2 liefern und einbauen 
+01041120;m2;Asphalttragschicht AC 32 T S, D=14,5-16 cm liefern und einbauen         
+01041122;t;Asphalttragschicht zur Profilierung liefern und einbauen                
+01041125;m2;Asphaltbinderschicht AC 11 B S, D=4 cm bis 10 m2 Haftkleber liefern + einbauen 
+01041130;m2;Asphaltbinderschicht AC 11 B S, D=4 cm bis 50 m2 Haftkleber liefern + einbauen
+01041140;m2;Asphaltbinderschicht AC 11 B S, D=4 cm einschl. Haftkleber liefern und   einbauen  
+01041143;m2;Asphaltbinderschicht AC 11 B S, D von 4,5-6cm, bis 10m2, Haftkleber herstellen 
+01041145;m2;Asphaltbinderschicht AC 11 B S, D von 4,5-6cm, bis 50m2, Haftkleber he  rstellen
+01041146;m2;Asphaltbinderschicht AC 11 B S, D von 4,5 -6 cm einschl. Haftkleber herstellen
+01041148;m2;Asphaltbinderschicht AC 22 B S, D von 6,5-8cm, bis 10m2, Haftkleber herstellen
+01041150;m2;Asphaltbinderschicht AC 22 B S, D von 6,5-8cm, bis 50m2, Haftkleber herstellen 
+01041160;m2;Asphaltbinderschicht AC 22 B S, D von 6,5 -8 cm einschl. Haftkleber herstellen
+01041165;t;Asphaltbinder zur Profilierung liefern und einbauen
+01041168;m2;Asphaltdeckschicht AC 8 D S, D=3 cm bis 10 m2, Haftkleber liefern + einbauen
+01041170;m2;Asphaltdeckschicht AC 8 D S, D=3 cm bis 50 m2, Haftkleber liefern + einbauen
+01041185;m2;Asphaltdeckschicht AC 8 D S, D=3 cm, einschl. Haftkleber  liefern und   einbauen
+01041188;m2;Asphaltdeckschicht AC 8 D S, D=3,5-4 cm bis 10 m2, Haftkleber liefern   + einbauen
+01041190;m2;Asphaltdeckschicht AC 8 D S, D=3,5-4 cm bis 50 m2, Haftkleber liefern   + einbauen
+01041205;m2;Asphaltdeckschicht AC 8 D S, D=3,5-4 cm, einschl. Haftkleber liefern +   einbauen
+01041220;m2;Asphaltdeckschicht AC 11 D S, D=4 cm bis 10 m2, Haftkleber liefern und einbauen 
+01041230;m2;Asphaltdeckschicht AC 11 D S, D=4 cm bis 50 m2, Haftkleber liefern und einbauen 
+01041240;m2;Asphaltdeckschicht AC 11 D S, D=4 cm einschl. Haftkleber liefern und einbauen  
+01041245;t;Asphaltdeckschicht zur Profilierung liefern und einbauen                
+01041248;m2;Splitmastixasphalt SMA 8 S, D=3,5-4 cm bis 10 m2, Haftkleber liefern +  einbauen 
+01041250;m2;Splitmastixasphalt SMA 8 S, D=3,5-4 cm bis 50 m2, Haftkleber liefern +  einbauen
+01041252;m2;Splitmastixasphalt SMA 8 S, D=3,5-4 cm, einschl. Haftkleber liefern und einbauen
+01041258;m2;Asphalttragdeckschicht AC 16 T D, D= 6 cm bis 10 m2 liefern und einbauen 
+01041260;m2;Asphalttragdeckschicht AC 16 T D, D= 6 cm bis 50 m2 liefern und einbauen 
+01041270;m2;Asphalttragdeckschicht AC 16 T D, D= 6 cm liefern und einbauen          
+01041273;m2;Asphalttragdeckschicht AC 16 T D, D= 8 cm bis 10 m2 liefern und einbauen
+01041275;m2;Asphalttragdeckschicht AC 16 T D, D= 8 cm bis 50 m2 liefern und einbauen
+01041280;m2;Asphalttragdeckschicht AC 16 T D, D= 8 cm liefern und einbauen          
+01041290;m2;Asphalttragdeckschicht AC 16 T D, D= 10 cm bis 10 m2 liefern und einbauen
+01041300;m2;Asphalttragdeckschicht AC 16 T D, D= 10 cm bis 50 m2 liefern und einbauen
+01041310;m2;Asphalttragdeckschicht AC 16 T D, D= 10 cm liefern und einbauen         
+01041320;m2;Prov. Asphaltbeton 0/8 und Sand (Wintereinbau), d bis 4 cm liefern, einbauen
+01041330;m;Fl„chenanrampung liefern, einbauen                                      
+01041331;m;Fl„chenanrampung wieder aufnehmen und abfahren                          
+01041341;m;Fugenband liefern, einbauen                                             
+01041343;St;Fugenband um Straáenkappe liefern und einbauen                          
+01041345;St;Fugenband um Schachtdeckel liefern und einbauen                         
+01043010;m3;Oberboden aus dem Baustellenbereich laden bis 20 cm auftragen           
+01043020;m3;Oberboden aus dem Zwischenlager auáerhalb Baustelle laden bis 20 cm auftragen
+01043030;m3;Gesiebter Oberboden liefern und im Mittel 20 cm auftragen               
+01043050;m2;Oberboden auflockern                                                    
+01043100;m3;Deckschicht ohne Bindemittel liefern, einbauen                          
+01043110;m3;Deckschicht ohne Bindemittel aus RC-Baustoff transportieren, einbauen   
+01043120;m2;Deckschicht aus Asche 0/5 l iefern, einbauen                            
+01043130;m2;Deckschicht Splitt-Sand-Gemisch liefern, einbauen                       
+01043140;m2;Bankette liefern und herstellen                                         
+01044010;m;Bordstein Beton verlegen                                                
+01044012;m;Bordstein Beton in Kurven verlegen                                      
+01044015;m;Bordsteine aus Naturstein auf Beton verlegen                            
+01044017;m;Kurvenbordsteine aus Naturstein auf Beton verlegen                      
+01044020;m;Randstein Beton verlegen                                                
+01044024;m;1- reihige Entw„sserungsrinne auf Beton verlegen                        
+01044026;m;2- reihige Entw„sserungsrinne auf Beton verlegen                        
+01044028;m;3- reihige Entw„sserungsrinne auf Beton verlegen                        
+01044030;m;System-Entw„sserungsrinne (Plattengr”áe bis 300 mm) verlegen            
+01044035;m;System-Entw„sserungsrinne (Plattengr”áe bis 500 mm) verlegen            
+01044050;m2;Verbundpflaster verlegen                                                
+01044080;m2;Groápflaster (Naturstein z.B. 14/17) verlegen                           
+01044100;m2;Kleinpflaster (Naturstein z.B. 9/11 oder 9/9) verlegen                  
+01044110;m2;Mosaikpflaster (Naturstein z.B. 4/6) verlegen                           
+01044130;m2;Plattenbelag verlegen                                                   
+01044140;m2;Rasengittersteine aus Beton verlegen                                    
+01044150;St;Bordstein, Kantstein, Rinnenstein schneiden                             
+01044160;m;Platten- und Verbundpflasterbelag schneiden                             
+01044200;St;Pflastersatz f?r Schieberkappe liefern und einbauen                     
+01044210;St;Pflastersatz f?r Hydrantenkappen liefern und einbauen                   
+01044220;St;Pflastersatz f?r Kanalschachtabdeckungen LW 625 liefern und einbauen    
+01045125;m3;Schottertragschicht aus Kalkstein 0/45, 150 MPa, liefern und  herstellen 
+01045181;m3;Schottertragschicht aus RC-Schotter des AG, 150 Mpa, anfahren + herstellen  
+01045186;m3;Schottertragschicht aus RC-Schotter, RC-1, des AN,150 Mpa, liefern + h erstellen
+01045190;m3;Betontragschicht C 12/15  liefern und einbauen                          
+01046015;St;Armaturenkappe (starr) setzen                                           
+01046017;St;Armaturenkappe (h”henverstellbar) setzen                                
+01046050;St;Strassenablauf h”her setzen bis 10 cm                                   
+01050010;m;Kernbohrung bis 67 mm herstellen                                        
+01050020;m;Kernbohrung bis 132 mm herstellen                                       
+01050030;m;Kernbohrung bis 250 mm herstellen                                       
+01050040;St;Reinigung nach der Kernbohrung                                          
+01050050;m;Mauerdurchbruch f?r Einspartenhauseinf?hrung  herstellen                
+01050060;m;Mauerdurchbruch f?r Mehrspartenhauseinf?hrung  herstellen               
+01050070;St;Einsparten-Hauseinf?hrung in Mauerdurchbruch einbauen                   
+01050080;St;MSH-Futterrohr in Mauerdurchbruch einbauen                              
+01050110;St;Einsparten-Hauseinf?hrung in Kernbohrung einbauen                       
+01050115;St;Mantelrohr / EG- oder TW Hauseinf?hrung (DN80-200) in Kernbohrung einbauen 
+01050120;St;Mehrspartenhauseinf?hrung  in Kernbohrung einbauen                      
+01050125;St;Mehrspartenhauseinf?hrung in nicht unterkellerte Geb„ude einbauen       
+01050130;St;Flexible Mantelrohre an Mehrspartenhauseinf?hrung montieren und abdichten  
+01050135;m;flexibles Mantelrohr bis DN 125 verlegen                                
+01050138;m;flexibles Mantelrohr bis DN 125 liefern und verlegen                    
+01050140;St;Vorhandene Hauseinf?hrung entfernen, Mauerdicke bis 42 cm               
+01050145;St;Vorhandene Hauseinf?hrung entfernen, Mauerdicke bis 62 cm               
+01050150;St;Vorhandene Hauseinf?hrung auswechseln, Mauerdicke bis 42 cm             
+01050155;St;Vorhandene Hauseinf?hrung auswechseln, Mauerdicke bis 62 cm             
+01061060;std;Vorarbeiter Stundenlohnarbeiten                                         
+01061070;std;Vorarbeiter šberstunden                                                 
+01061080;std;Vorarbeiter Nachtarbeit                                                 
+01061090;std;Vorarbeiter Sonn- u. Feiertage                                          
+01061100;std;Vorarbeiter Feiertage                                                   
+01061110;std;Stundenlohn Spezial-Baufacharbeiter, Ger„tef?hrer, Maschinenwart, Kraftfahrer 
+01061120;std;šberstunden Spezial-Baufacharbeiter, Ger„tef?hrer, Maschinenwart, Kraftfahrer
+01061130;std;Nachtarbeit Spezial-Baufacharbeiter, Ger„tef?hrer, Maschinenwart, Kraftfahrer
+01061140;std;Sonn- u.Feiertage Spezial-Baufacharbeiter,Ger„tef?hrer,Maschinenwart,Kraftfahrer
+01061150;std;Feiertage Spezial-Baufacharbeiter, Ger„tef?hrer, Maschinenwart, Kraftfahrer
+01061210;std;Stundenlohnarbeiten Baufachwerker, Sicherungsposten, Facharbeiter,  Bauwerker
+01061220;std;šberstunden Baufachwerker, Sicherungsposten, Facharbeiter,  Bauwerker   
+01061230;std;Nachtarbeit Baufachwerker, Sicherungsposten, Facharbeiter,  Bauwerker   
+01061240;std;Sonn- u. Feiertage Baufachwerker, Sicherungsposten, Baufacharbeiter,Bauwerker
+01061250;std;Feiertage Baufachwerker, Sicherungsposten, Baufacharbeiter,  Bauwerker  
+01062020;std;Kleintransporter ohne Bedienung                                         
+01062030;std;LKW-2-Achser, ohne Bedienung                                            
+01062040;std;LKW-2-Achser, Selbstlader, ohne Bedienung                               
+01062050;std;LKW-3-Achser, ohne Bedienung                                            
+01062055;std;LKW-3-Achser, Selbstlader, ohne Bedienung                               
+01062060;std;LKW-4-Achser, ohne Bedienung                                            
+01062070;std;LKW-Anh„nger                                                            
+01062080;std;Kabelwagen                                                              
+01062081;std;Kabelzugmaschine, ohne Bedienung                                        
+01062082;std;Nachl„ufer                                                              
+01062100;std;Hydraulikbagger, Rad, ohne Bedienung                                    
+01062110;std;Hydraulikbagger, Kette, ohne Bedienung                                  
+01062120;std;Aufbruchmeiáel f?r Hydraulikbagger                                      
+01062130;std;Minibagger ohne Bedienung bis 6,5 t                                     
+01062140;std;Aufbruchmeiáel f?r Minibagger                                           
+01062150;std;Radlader ohne Bedienung, mit  Zubeh”r                                   
+01062160;std;Kompressor 3 - 5 m3/min                                                 
+01062170;std;Tandemwalze                                                             
+01062190;std;R?ttelplatte                                                            
+01062200;std;Vibrostampfer                                                           
+01062210;std;Kleinger„t                                                              
+01062220;std;Saugbagger, 3 Achser                                                    
+01062230;std;Saugbagger, 4 Achser                                                    
+01070010;m;Bordstein gerade (15/30 cm) Beton liefern                               
+01070012;m;Kurvenbetonbordstein (15/30 cm) liefern                                 
+01070014;m;Rundbordstein aus Beton (15/22) r=20 liefern                            
+01070016;m;Fl?gelstein von H (15/30) auf R 15/22 aus Beton liefern                 
+01070020;m;Randstein (bis 8/20 cm) Beton liefern                                   
+01070025;m;Randstein (bis 8/30 cm) Beton liefern                                   
+01070030;m;Betonformstein (Rinnenstein) liefern                                    
+01070040;m;Betonformstein (Rinnenplatte Gr”áe bis 300 mm) liefern                  
+01070100;m2;Groápflaster aller Art liefern                                          
+01070110;m2;Kleinpflaster aller Art liefern                                         
+01070120;m2;Mosaikpflaster aller Art liefern                                        
+01070130;m2;Betonpflaster als Verbundpflaster liefern                               
+01070200;m2;Gehwegplatten Beton liefern                                             
+01070210;m2;Orientierungsplatten in verschiedenen Formaten liefern                  
+01070220;m2;Rasengittersteine aus Beton liefern                                     
+01070300;m3;Grubensand 0/2 liefern                                                  
+01070310;m3;Grubenkies 0/32 liefern                                                 
+01070320;m3;Mutterboden liefern                                                     
+01070340;m3;Rollkies 16/32 liefern                                                  
+01070350;m3;Beton liefern                                                           
+01070360;m3;Splitt Basalt liefern                                                   
+01070370;m3;Schotter Kalkstein liefern                                              
+01070380;m3;Schotter aufbereitet liefern                                            
+01070400;kg;Propan/Butan liefern                                                    
+01070402;kg;Acetylen liefern                                                        
+01070412;m3;Sauerstoff liefern                                                      
+01070420;Sack;Zement (25 kg-Sack) liefern                                             
+01070440;Sack;Rindenmulch (80 L-Sack) liefern                                         
+01070450;kg;Streusalz liefern                                                       
+02010010;m;Kabel der Gruppe 1 ziehen und LWL-Rohre verlegen                        
+02010015;m;Kabel der Gruppe 1 in  LWL-Rohre einblasen                              
+02010020;m;Kabel der Gruppe 2 ziehen                                               
+02010030;m;Kabel der Gruppe 3 ziehen                                               
+02010040;m;Kabel der Gruppe 4a (bis 1x185) in 3 Z?gen ziehen                       
+02010050;m;Kabel der Gruppe 4b (bis 1x300) in 3 Z?gen ziehen                       
+02010060;m;Kabel der Gruppe 4c (bis 1x500) in 3 Z?gen ziehen                       
+02010070;m;Kabel der Gruppe 5 (3x1x500) ziehen                                     
+02011010;m;Bauseits gestelltes Erdungsseil verlegen                                
+02011020;St;Baus. gest. Tiefenerder rammen                                          
+02011030;St;Klemmverbindung Kupferseil                                              
+02012005;m;Kabelschutzrohr 3-fach Rohrsystem verschweisst verlegen                 
+02012010;m;Leerrohr bis DN 200 verlegen                                            
+02012020;m;Flex. geripptes Mantelrohr als Schutzrohr aus PE-HD bis DN100 liefern u.verlegen
+02012030;m;Flex. geripptes Mantelrohr als Schutzrohr aus PE-HD bis DN200 liefern + verlegen
+02020010;St;Beleuchtungsmast bis 7m Lph stellen                                     
+02020020;St;Beleuchtungsmast ?ber 7m Lph stellen                                    
+02020030;St;Beleuchtungsmast bis 7m Lph demontieren                                 
+02020040;St;Beleuchtungsmast ?ber 7m Lph demontieren                                
+02020050;St;Beleuchtungsmast bis 7m Lph  auswechseln                                
+02020060;St;Beleuchtungsmast ?ber 7m Lph auswechseln                                
+02020070;St;Beleuchtungsmast bis 7m Lph versetzen                                   
+02020080;St;Beleuchtungsmast ?ber 7m Lph versetzen                                  
+02020090;St;Mastloch bis 7,0 m Lph ohne Oberfl„che                                  
+02020100;St;Mastloch ?ber 7,0 m bis 10,0 m Lph ohne Oberfl„che                      
+02020110;St;Mastloch ?ber 10,0 m bis 12,0 m Lph ohne Oberfl„che                     
+02020120;St;Mastfundament herstellen                                                
+02020130;St;Mastfundament demontieren                                               
+02020140;St;Kopfloch bis 1,0 x 1,0 m, ohne Oberfl„che, nur bei Beleuchtung          
+02020160;St;Oberfl„che Mastloch bis 7,0 m Lph in Platten, Pflaster, nur bei Beleuchtung
+02020170;St;Oberfl„che Mastloch ?ber 7m bis 10m Lph in Platten/Pflaster, nur bei Beleuchtung
+02020180;St;Oberfl„che Mastloch ?ber 10m bis 12m Lph in Platten/Pflaster,nur bei Beleuchtung
+02020190;St;Oberfl„che Mastloch  bis 7,0 m Lph in Asphalt, nur bei Beleuchtung      
+02020200;St;Oberfl„che Mastloch ?ber 7,0 m bis 10,0 m Lph in Asphalt, nur bei Beleuchtung
+02020210;St;Oberfl„che Mastloch ?ber 10,0 m bis 12,0 m Lph in Asphalt, nur bei Beleuchtung
+02020220;St;Oberfl„che Kopfloch bis 1,0 x 1,0 m in Platten, Pflaster, nur bei Beleuchtung
+02020240;St;Oberfl„che Kopfloch bis 1,0 x 1,0 m in Asphalt, nur bei Beleuchtung     
+02020270;St;Schilder demontieren und anschlieáend montieren                         
+02020280;St;Beleuchtungsmast jeder Art richten                                      
+02020290;St;Betonmast oder Abspannmast demontieren u. zerkleinern                   
+08020010;St;Baustelleneinrichtung Steuerbare horizontale Sp?lbohrverfahren Hausanschl?sse
+08020020;St;Umsetzen der Ger„tschaften steuerbare horizontale Sp?lbohrverf. Hausanschl?sse
+08020030;std;Stillstand- oder Wartezeiten Steuerbare horizontale Sp?lbohrverf. Hausanschl?sse
+08020040;m;PE-Mantelrohr Da 110 mm Steuerbare horizontale Sp?lbohrverf., f?r HA,einbauen
+08100010;St;Baustelleneinrichtung f?r ungesteuerte  Horizontal - Pressbohrung       
+08100020;St;Umsetzen der Ger„tschaften im ung. Horizontal-Pressbohrverf. innerh. der Baust.
+08100030;std;Stillstand- und Wartezeiten im ungesteuerten Horizontal - Pressbohrverfahren
+08100061;m;Ungesteuerte Horizontal - Pressbohrung DN 150                           
+08100071;m;Ungesteuerte Horizontal - Pressbohrung DN 200                           
+08100081;m;Ungesteuerte Horizontal - Pressbohrung DN 250                           
+08100091;m;Ungesteuerte Horizontal - Pressbohrung DN 300                           
+08100101;m;Ungesteuerte Horizontal - Pressbohrung DN 400                           
+08100111;m;Ungesteuerte Horizontal - Pressbohrung DN 500                           
+09010010;St;Geb?hr f?r die verkehrsrechtliche Anordnung (Verkehrszeichenplan) laut Nachweis 
+09999999;psh;Kleinstbaustellenpsh. f?r Tiefbau <= 1.000 netto (auáer Pos. 0202.. und 0190..)

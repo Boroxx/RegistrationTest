@@ -6,7 +6,6 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
 public class UserDto {
@@ -30,6 +29,13 @@ public class UserDto {
     @PasswordMatches
     private String password;
 
+    @NotNull
+    @NotEmpty
+    private String strasse_hausnummer;
+    @NotNull
+    @NotEmpty
+    private String stadt_plz;
 
-    private List<String> role ;
+
+    private String role;
 }

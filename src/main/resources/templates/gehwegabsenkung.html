@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="/login.css" rel="stylesheet" type="text/css"/>
+    <link href="/all.css" rel="stylesheet" type="text/css"/>
+    <title>Gehwegabsenkung</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home"><img alt="portly" src="/portly_transparent_100x40.png"></a>
+    <a class="nav-link active" href="/home">Home</a>
+    <a class="nav-link" href="/login" sec:authorize="!isAuthenticated()">Anmelden</a>
+    <a class="nav-link" href="/registration" sec:authorize="!isAuthenticated()">Registrieren</a>
+
+    <a class="nav-link" href="/home/dashboard" sec:authorize="isAuthenticated()">Dashboard</a>
+    <a class="nav-link" href="/logout" sec:authorize="isAuthenticated()">Abmelden</a>
+</nav>
+
+
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-light" href="/home/dashboard"><i
+                    class="fas fa-bars"></i>
+                Übersicht</a>
+            <a class="list-group-item list-group-item-action bg-light" href="/home/dashboard/profil"><i
+                    class="fas fa-user"></i> Profil</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-info-circle"></i>
+                Status</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-question-circle"></i>
+                Hilfe</a>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+        <div class="jumbotron jumbotron-fluid" style="background-color: #FFFFFF!important;">
+            <div class="container">
+
+                <h1 class="display-4" style="color: dodgerblue">
+                <span style="color: dodgerblue;">
+                    <i class="fas fa-truck-pickup"></i>
+                 </span>
+                    Gehwegabsenkung
+                </h1>
+                <hr>
+                <br> <br>
+
+                <p class="lead">Damit wir ein Angebot für dich erstellen können, brauchen wir zunächst ein Paar
+                    Informationen von dir, da sich jedes Bauprojekt unterscheidet<br><br>
+                    Diese Daten werden vorläufig bis das Projekt abgeschlossen ist auf Portly's Datenbank
+                    gespeichert.<br> <br>
+                    Aus den von ihnen Eingebenen Daten wird dann ein faires Angebot von unseren Ingenieuren erstellt
+                    welches Sie in Ihrem User-Dashboard unter der Spalte Übersicht finden können. </p>
+
+                <br> <br>
+
+                <div class="progress" style="height: 1px;">
+                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" class="progress-bar"
+                         role="progressbar" style="width: 50%;"></div>
+                </div>
+
+                <div class="d-flex"><span class="ml-auto" style="color: dodgerblue;">
+                <a href="/home/gehwegabsenkung2"><i class="fas fa-arrow-right fa-3x"></i></a>
+                 </span>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+
+
+<footer>
+
+</footer>
+
+<script crossorigin="anonymous"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+</body>
+</html>

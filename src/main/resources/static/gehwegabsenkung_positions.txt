@@ -1,0 +1,29 @@
+0000001;m;1-Zeilige Entwässerungsrinne einschliesslich Bettung aufnehmen
+0000002;m;2-Zeilige Entwässerungsrinne einschliesslich Bettung aufnehmen
+0000003;m;3-Zeilige Entwässerungsrinne einschliesslich Bettung aufnehmen
+0000004;m2;Betonverbundpflaster aufnehmen
+0000005;m2;Betongehwegplatte aufnehmen
+0000006;m2;Ungebundene Tragschichtbefestigung aufbrechen,laden und abfahren
+0000007;St;Amaturenkappe in Graben aufnehmen
+0000008;m3;Boden ausheben
+0000009;m3;Boden von Hand ausheben
+0000010;m3;Boden laden zur Anlage des Arbeitnehmer/Deponie transportieren
+0000011;m3;Entsorgungsgebühr für Material der Einstufung Z0, Z1.1, Z1.2
+0000012;m3;Kies 0/32, frostsicher, aus Anlage AN,EV2 mind 120Mpa, liefern und einbauen
+0000013;m;Bordstein in Beton verlegen
+0000014;m;Randstein in Beton verlegen
+0000015;m;1-reihige Entwässerungsrinne auf Beton verlegen
+0000016;m;2-reihige Entwässerungsrinne auf Beton verlegen
+0000017;m;3-reihige Entwässerungsrinne auf Beton verlegen
+0000018;m2;Verbundpflaster verlegen
+0000019;m2;Platten verlegen
+0000020;St;Bordstein, Kantstein, Rinnenstein schneiden
+0000021;m;Platten- und Verbundpflasterbelag schneiden
+0000022;m3;Schottertragschicht aus Kalkstein 0/45, 150 MPa, liefern und herstellen
+0000023;St;Amaturenkappe starr setzen
+0000024;m;Rundbordstein aus Beton (15/22) r=20 liefern
+0000025;m;Randstein Beton liefern
+0000026:m;Flügelstein liefern
+0000027;m3;Basaltsplitt liefern
+
+

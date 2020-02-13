@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-        
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/login.css" />
-    <link rel="stylesheet" type="text/css" href="/all.css" />
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="/login.css" rel="stylesheet" type="text/css"/>
+    <link href="/all.css" rel="stylesheet" type="text/css"/>
     <title>Portly Startseite</title>
-    
+
 </head>
 <body>
 
@@ -24,83 +25,91 @@
     <a sec:authorize="isAuthenticated()" class="nav-link" href="/home/dashboard">Dashboard</a>
     <a sec:authorize="isAuthenticated()" class="nav-link" href="/logout">Abmelden</a>
 </nav>
-     
-         
-        <div  class="d-flex justify-content-center baumodule">
-            <div class="jumbotron jumbotron-fluid" style="background-color: #FFFFFF!important;">
-                <div class="container">
-                    <h1 class="display-4">Eine Platform die jedem Nutzer das Leben erleichtert.</h1>
-                    <p class="lead">Sie wissen nicht wieviel ihr Bauvorhaben kostet und Sie haben keine Ahnung an wen Sie sich wenden sollen? <br>
-                        Kein Problem Portly ist genau dafür konzipiert worden. <br>
-                        Wir von Portly kümmern uns direkt online um ihr Bauvorhaben und leiten dieses an verschiedene Firmen unserer Wahl weiter. <br></p>
-                </div>
-            </div>
 
-              
-         </div>
-      
-    
-    
-      <div class="container baumodule" >
-            <div class="row">
-              <div class="col-sm">
-                    <div class="card">
-                            <div class="card-body">
-                                    <h5 class="card-title">
+
+<div class="d-flex justify-content-center baumodule">
+    <div class="jumbotron jumbotron-fluid" style="background-color: #FFFFFF!important;">
+        <div class="container">
+            <h1 class="display-4">Eine Plattform die jedem Nutzer das Leben erleichtert.</h1>
+            <p class="lead">Sie wissen nicht wieviel ihr Bauvorhaben kostet und Sie haben keine Ahnung an wen Sie sich
+                wenden sollen? <br>
+                Kein Problem Portly ist genau dafür konzipiert worden. <br>
+                Wir von Portly kümmern uns direkt online um ihr Bauvorhaben und leiten dieses an verschiedene Firmen
+                unserer Wahl weiter. <br></p>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="container baumodule">
+    <div class="row">
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
 
                                           <span style="color: dodgerblue;">
                                               <i class="fas fa-home icon-2x"></i>
                                           </span>
-                                        Bodenplatte
+                        Bodenplatte
 
-                                    </h5>
-                                    <p class="card-text">Sie brauchen eine Bodenplatte für ihr Haus und wissen nicht an welches Unternehmen Sie sich wenden sollen?</p>
-                                    <a href="" class="btn btn-primary">Angebotanfragen</a>
-                            </div>
-                    </div>
-              </div>
-              <div class="col-sm">
-                    <div class="card">
-                            <div class="card-body">
-                                    <h5 class="card-title">
+                    </h5>
+                    <p class="card-text">Sie brauchen eine Bodenplatte für ihr Haus und wissen nicht an welches
+                        Unternehmen Sie sich wenden sollen?</p>
+                    <a class="btn btn-primary" href="">Angebotanfragen</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
                                          <span style="color: dodgerblue;">
                                             <i class="fas fa-truck-pickup"></i>
                                          </span>
-                                        Gehwegabsenkung
-                                    </h5>
-                                    <p class="card-text">Sie brauchen eine Gehwegabsenkung vor ihrem Haus und wissen nicht an welches Unternehmen Sie sich wenden sollen?</p>
-                                    <a href="/home/gehwegabsenkung" class="btn btn-primary">Angebot anfragen</a>
-                            </div>
-                    </div>
-              </div>
-              <div class="col-sm">
-                    <div class="card">
-                            <div class="card-body">
-                                    <h5 class="card-title">
+                        Gehwegabsenkung
+                    </h5>
+                    <p class="card-text">Sie brauchen eine Gehwegabsenkung vor ihrem Haus und wissen nicht an welches
+                        Unternehmen Sie sich wenden sollen?</p>
+                    <a class="btn btn-primary" href="/home/gehwegabsenkung">Angebot anfragen</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
                                         <span style="color: dodgerblue;">
                                             <i class="fas fa-water"></i>
                                           </span>
-                                        Kanal
-                                    </h5>
-                                    <p class="card-text">Sie brauchen einen Kanal für ihr Haus und wissen nicht an welches Unternehmen Sie sich wenden sollen?</p>
-                                    <button class="btn btn-primary" disabled>Angebot anfragen</button>
-                            </div>
-                    </div>
-              </div>
+                        Kanal
+                    </h5>
+                    <p class="card-text">Sie brauchen einen Kanal für ihr Haus und wissen nicht an welches Unternehmen
+                        Sie sich wenden sollen?</p>
+                    <button class="btn btn-primary" disabled>Angebot anfragen</button>
+                </div>
             </div>
-          
-    
         </div>
-    
+    </div>
 
 
+</div>
 
-      <footer>
 
-    </footer>
+<footer>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+</footer>
+
+<script crossorigin="anonymous"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title>Angebotsanfrage Uebersicht</title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="/login.css" rel="stylesheet" type="text/css"/>
+    <link href="/imagemodal.css" rel="stylesheet" type="text/css"/>
+    <link href="/all.css" rel="stylesheet" type="text/css"/>
+
+    <script crossorigin="anonymous"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home"><img alt="portly" src="/portly_transparent_100x40.png"></a>
+    <a class="nav-link active" href="/home">Home</a>
+    <a class="nav-link" href="/login" sec:authorize="!isAuthenticated()">Anmelden</a>
+    <a class="nav-link" href="/registration" sec:authorize="!isAuthenticated()">Registrieren</a>
+
+
+    <a class="nav-link" href="/home/dashboard" sec:authorize="isAuthenticated()">Dashboard</a>
+    <a class="nav-link" href="/logout" sec:authorize="isAuthenticated()">Abmelden</a>
+</nav>
+
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-light" href="/home/dashboard"><i
+                    class="fas fa-bars"></i>
+                Übersicht</a>
+            <a class="list-group-item list-group-item-action bg-light" href="/home/dashboard/profil"><i
+                    class="fas fa-user"></i> Profil</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-info-circle"></i>
+                Status</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-question-circle"></i>
+                Hilfe</a>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+
+        <div class="jumbotron jumbotron-fluid" style="background-color: #FFFFFF!important;">
+            <div class="container">
+                <!--
+                <h1 style="color: dodgerblue" class="display-4">
+                <span style="color: dodgerblue;">
+                    <i class="fas fa-bars"></i>
+                 </span>
+                    Ihre Angebotsanfrage
+                </h1>
+                <hr>
+-->
+            </div>
+
+            <div class="container  uebersicht shadow p-3 mb-5 bg-white rounded">
+
+                <div class="row">
+                    <div class="col-sm-12" th:object="${clientbestellung}">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">
+
+
+                                    <span class="blaueSchrift"> Bauvorhaben: Gehwegabsenkung </span>
+
+                                    (
+                                    <span style="color: #ffa41b;" th:unless="${clientbestellung.status}">
+                                              In Bearbeitung
+                                        </span>
+                                    <span style="color: limegreen;" th:if="${clientbestellung.status}">
+                                              Akzeptiert
+                                        </span>
+                                    )
+
+
+                                </h4>
+                                <hr>
+
+
+                                <h5><span class="blaueSchrift"><i class="fas fa-lock "></i></span> Anschrift und
+                                    Persönliche Daten</h5>
+                                <hr>
+                                <p><b>Name:</b> <span th:text="*{name}"></span></p>
+                                <hr>
+                                <p><b>Email:</b> <span th:text="*{email}"></span></p>
+                                <hr>
+                                <p><b>Telefon:</b><span th:text="*{telefon}"></span></p>
+                                <hr>
+                                <p><b>Straße und Hausnummer des Bauvorhabens</b> <span
+                                        th:text="*{strasse_hausnummer}"></span></p>
+                                <hr>
+                                <p><b>Stadt,Postleitzahl:</b> <span th:text="*{stadt_plz}"></span></p>
+                                <hr>
+                                <br>
+
+                                <h5><span class="blaueSchrift"><i class="fas fa-drafting-compass"></i></span>
+                                    Bauspezfische Informationen</h5>
+                                <hr>
+                                <p><b>Gehweg gesamt:</b> <span th:text="*{gehwegm2}"></span> m2</p>
+                                <hr>
+                                <p><b>Preis:</b> <span th:text="*{preis}"></span> Euro </p>
+                                <hr>
+                                <p><b>Vorgarten:</b> <span th:text="*{vorgarten}"></span></p>
+                                <hr>
+                                <p><b>Hinderniss/e:</b> <span th:text="*{hindernis}"></span></p>
+                                <hr>
+                                <p><b>Anmerkungen zum Bauvorhaben:</b> <span th:text="*{anmerkung}"></span></p>
+                                <hr>
+                                <p><b>Gehwegbreite:</b> <span th:text="*{gehwegbreite}"></span> cm </p>
+                                <p><b>Gehweglaenge:</b> 700 cm </p>
+                                <hr>
+                                <p><b>Plattenlaenge:</b> <span th:text="*{plattenlaenge}"></span> cm </p>
+                                <p><b>Plattenbreite:</b> <span th:text="*{plattenbreite}"></span> cm </p>
+                                <hr>
+
+
+                                <h5><span class="blaueSchrift"><i class="fas fa-download"></i></span> Downloads</h5>
+                                <hr>
+                                <p><a th:href="*{genehmigung}">Genehmigung</a></p>
+                                <br>
+
+                                <hr>
+
+                                <h5><span class="blaueSchrift"><i class="fas fa-images"></i></span> Gehwegbilder:</h5>
+
+
+                                <div class="row">
+                                    <div class="col-sm-4" th:each="gehwegbilder : *{gehwegBilderListe}">
+                                        <img alt="gehweg" class="myImg" th:height="200" th:src="${gehwegbilder}"
+                                             th:width="200">
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <br>
+
+
+                                <div class="d-flex">
+                            <span class="ml-auto">
+                            <a class="btn btn-primary" href="/home/dashboard">Zurück zur Übersicht</a>
+                             </span>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="modal" id="myModal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+
+</div>
+<!-- /#page-content-wrapper -->
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+
+    var modalImg = document.getElementById("img01");
+
+    $('img').click(function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+
+    });
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>
+
+
+</body>
+</html>
