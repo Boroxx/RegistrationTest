@@ -27,20 +27,17 @@ public class UserDashboardController {
     @GetMapping("/home/dashboard")
     public String dashboard(Model model) {
 
-        List<GehwegInformation> gehwegInformation = gehwegInformationService.getGehWegInformationObjects(getEmail());
-
-        model.addAttribute("fullusername", getFullUserName());
+        String email = getEmail();
+        List<GehwegInformation> gehwegInformation = gehwegInformationService.getGehWegInformationObjects(email);
+        model.addAttribute("fullusername", getEmail());
         model.addAttribute("gehwegInformationList", gehwegInformation);
-
         return "uebersicht";
     }
 
 
     @GetMapping("/home/dashboard/profil")
     public String profil(Model model) {
-
         model.addAttribute("userObject", userService.loadUser(getEmail()));
-
         return "profil";
     }
 

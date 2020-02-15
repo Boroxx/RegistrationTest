@@ -50,10 +50,11 @@ public class GehwegInformationService {
     public GehwegInformation registerGehwegInformation(GehwegInformationDto gehwegInformationDto) {
 
         UUID uuid = UUID.randomUUID();
-
+        String name = userService.getUserName(gehwegInformationDto.getUsername());
 
         //DAO SETUP
         GehwegInformation gehwegInformation = new GehwegInformation();
+        gehwegInformation.setFullName(name);
         gehwegInformation.setUsername(gehwegInformationDto.getUsername());
         gehwegInformation.setVorgarten(gehwegInformationDto.getVorgarten());
         gehwegInformation.setHindernis(concatHindernisse(gehwegInformationDto));
@@ -103,13 +104,13 @@ public class GehwegInformationService {
 
         ClientBestellung clientBestellung = new ClientBestellung();
         GehwegInformation gehwegInformation = gehwegInformationRepsoitory.findByID(id);
-        String name = userService.getUserName(gehwegInformation.getUsername());
+
         User user = userService.getUserByEmail(gehwegInformation.getUsername());
         List<String> imagelinks = Arrays.asList(gehwegInformation.getGehwegBilderListe().split(";"));
 
         BauvorhabenAdresse bauvorhabenAdresse = gehwegInformation.getBauvorhabenAdresse();
 
-        clientBestellung.setName(name)
+        clientBestellung.setName(gehwegInformation.getFullName())
                 .setTelefon(user.getPhonenumber())
                 .setId(gehwegInformation.getID())
                 .setGenehmigung(gehwegInformation.getGenehmigungDownload())
