@@ -28,13 +28,15 @@
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-bars"></i>
+            <a class="list-group-item list-group-item-action bg-light" href="/home/adminDashboard"><i
+                    class="fas fa-bars"></i>
                 Angebotsanfragen</a>
             <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-user"></i>
                 Nachunternehmer-Katalog</a>
             <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-info-circle"></i>
                 Aktive Aufträge</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-question-circle"></i>
+            <a class="list-group-item list-group-item-action bg-light" href="/admin/positionen"><i
+                    class="fas fa-question-circle"></i>
                 Gehwegabenkung LV</a>
         </div>
     </div>
@@ -42,42 +44,44 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-        <div class="container-fluid">
-            <h1 class="mt-4">Wilkommen, Admin!</h1>
-            <p>Hier können Sie ihre Preise eingeben</p>
-        </div>
-
-
         <div class="container">
+            <div class="container-fluid">
+                <h1 class="mt-4"><span class="blaueSchrift"><i class="fas fa-book"></i></span> Wilkommen, Admin!</h1>
+                <p>Hier können Sie das Leistungsverzeichnis zur Gehwegabsenkung bearbeiten.</p>
+            </div>
 
-            <a href="/admin/positionenEdit">bearbeiten</a>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Ordnungsnummer</th>
-                    <th scope="col">Kurztext</th>
-                    <th scope="col">Menge</th>
-                    <th scope="col">Einheit</th>
-                    <th scope="col">Preis</th>
 
-                </tr>
-                </thead>
+            <div class="container">
 
-                <tbody>
+                <a href="/admin/positionenEdit">bearbeiten</a>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Ordnungsnummer</th>
+                        <th scope="col">Kurztext</th>
+                        <th scope="col">Menge</th>
+                        <th scope="col">Einheit</th>
+                        <th scope="col">Preis</th>
 
-                <tr th:each="position : ${positionen}">
-                    <td><span th:text="${position.ordnungsnummer}"></span></td>
-                    <td th:text="${position.kurztext}"></td>
-                    <td th:text="${position.menge}"></td>
-                    <td th:text="${position.einheit}">Euro</td>
-                    <td th:text="${position.preis}"></td>
+                    </tr>
+                    </thead>
 
-                </tr>
-                </tbody>
-            </table>
+                    <tbody>
+
+                    <tr th:each="position : ${positionen}">
+                        <td><span th:text="${position.ordnungsnummer}"></span></td>
+                        <td th:text="${position.kurztext}"></td>
+                        <td th:text="${position.menge}"></td>
+                        <td th:text="${position.einheit}">Euro</td>
+                        <td th:text="${position.preis}"></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
 
         </div>
-
     </div>
     <!-- /#page-content-wrapper -->
 

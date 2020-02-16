@@ -28,13 +28,15 @@
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-bars"></i>
+            <a class="list-group-item list-group-item-action bg-light" href="/home/adminDashboard"><i
+                    class="fas fa-bars"></i>
                 Angebotsanfragen</a>
             <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-user"></i>
                 Nachunternehmer-Katalog</a>
             <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-info-circle"></i>
                 Aktive Aufträge</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-question-circle"></i>
+            <a class="list-group-item list-group-item-action bg-light" href="/admin/positionen"><i
+                    class="fas fa-question-circle"></i>
                 Gehwegabenkung LV</a>
         </div>
     </div>
@@ -51,8 +53,9 @@
         <div class="container">
 
 
-            <form action="/admin/positionenEdit" method="post">
+            <form action="/admin/createFinalAngebot" method="post" th:object="${angebottemplate}">
 
+                <h4>Bestellung-ID: <span th:text="${angebottemplate.bestellungId}"></span></h4>
                 <table class="table">
                     <thead>
                     <tr>
@@ -62,7 +65,7 @@
                         <th scope="col">Menge</th>
                         <th scope="col">Einheit</th>
                         <th scope="col">Preis</th>
-                        <th scope="col">Aktion</th>
+
 
 
                     </tr>
@@ -70,18 +73,32 @@
 
                     <tbody>
 
-                    <tr th:each="position : ${positionen}">
-                        <td><input th:checked="${position.choosen}" type="checkbox"></td>
-                        <td><span th:text="${position.ordnungsnummer}"></span></td>
-                        <td th:text="${position.kurztext}"></td>
-                        <td><input size="6" th:value="${position.menge}" type="text"></td>
-                        <td th:text="${position.einheit}">Euro</td>
-                        <td><input size="6" th:name="positionpreis" th:value="${position.preis}" type="text">
-                            <input th:name="ordnungsnummer" th:value="${position.ordnungsnummer}" type="hidden">
+
+                    <tr th:each="position,iter : ${angebottemplate.pickedPositions}">
+                        <td>
+                            <input th:checked="${position.choosen}"
+                                   th:field="*{pickedPositions[__${iter.index}__].choosen}" type="checkbox">
                         </td>
                         <td>
-                            <button class="btn" type="submit"><span class="blaueSchrift"><i
-                                    class="fas fa-save fa-2x"></i></span></button>
+                            <span th:text="${position.ordnungsnummer}"></span>
+                            <input size="8" th:attr="value = ${position.ordnungsnummer}"
+                                   th:field="*{pickedPositions[__${iter.index}__].ordnungsnummer}" type="hidden">
+                        </td>
+
+                        <td>
+                            <span th:text="${position.kurztext}"></span>
+                            <input size="8" th:attr="value = ${position.kurztext}"
+                                   th:field="*{pickedPositions[__${iter.index}__].kurztext}" type="hidden">
+                        </td>
+                        <td><input size="6" th:attr="value = ${position.menge}"
+                                   th:field="*{pickedPositions[__${iter.index}__].menge}" type="text"></td>
+                        <td>
+                            <span th:text="${position.einheit}"></span>
+                            <input size="8" th:field="*{pickedPositions[__${iter.index}__].einheit}"
+                                   th:value="${position.einheit}" type="hidden">
+                        </td>
+                        <td><input size="6" th:attr="value = ${position.preis}"
+                                   th:field="*{pickedPositions[__${iter.index}__].preis}" type="text">
                         </td>
 
 
@@ -89,10 +106,19 @@
                     </tbody>
                 </table>
 
+                <input size="8" th:attr="value = ${angebottemplate.bestellungId}" th:field="*{bestellungId}"
+                       type="hidden">
+                <br>
+                <div class="d-flex">
+                    <div class="ml-auto">
+                        <button class="btn btn-success" type="submit"> Angebot erstellen</button>
+                    </div>
+
+                </div>
+                <br>
+
 
             </form>
-
-            <a th:href="'/admin/AngebotSuccess/'+ ${angebot.id}">Angebot erstellen</a>
 
         </div>
 

@@ -112,7 +112,11 @@
 
                                 <a class="btn btn-primary" th:href="@{'/home/dashboard/' + ${gehwegInformation.ID}}">Zur
                                     Anfrage</a>
-                                <a class="btn btn-success disabled" href="">Zum Angebot</a>
+                                <a th:href="'/home/dashboard/angebot/'+${gehwegInformation.ID}">
+                                    <button class="btn btn-success disabled" th:disabled="${!gehwegInformation.status}">
+                                        Zur Anfrage
+                                    </button>
+                                </a>
 
 
                             </div>

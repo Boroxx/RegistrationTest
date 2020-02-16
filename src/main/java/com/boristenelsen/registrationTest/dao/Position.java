@@ -1,6 +1,9 @@
 package com.boristenelsen.registrationTest.dao;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,6 +12,9 @@ import java.text.DecimalFormatSymbols;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Position {
 
 

@@ -96,3 +96,7 @@ body {
     font-size: 55px;
     color: black;
 }
+
+input[name="hiddeninput"] {
+    display: none;
+}

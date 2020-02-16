@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
@@ -36,6 +37,7 @@ public class UserDashboardControllerTest {
     UserService userServiceMock;
 
     @Test
+    @DirtiesContext
     public void dashboard_FuegeAlleGehwegModulEintraegeInViewZu() throws Exception {
         GehwegInformation first = GehwegInformation.builder()
                 .ID(1)
@@ -86,6 +88,7 @@ public class UserDashboardControllerTest {
     }
 
     @Test
+    @DirtiesContext
     public void profil_FuegeUserObjectHinzu() throws Exception {
         User user = User.builder()
                 .email("test@test.de")
@@ -111,6 +114,7 @@ public class UserDashboardControllerTest {
     }
 
     @Test
+    @DirtiesContext
     public void angebotsaufforderungUebersicht_AngebotWirdAufSeiteAngezeigt() throws Exception {
         ClientBestellung cb = ClientBestellung.builder()
                 .id(123)

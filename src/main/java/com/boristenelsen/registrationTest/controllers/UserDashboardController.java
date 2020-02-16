@@ -1,8 +1,10 @@
 package com.boristenelsen.registrationTest.controllers;
 
 
+import com.boristenelsen.registrationTest.dao.Angebot;
 import com.boristenelsen.registrationTest.dao.GehwegInformation;
 import com.boristenelsen.registrationTest.dto.ClientBestellung;
+import com.boristenelsen.registrationTest.services.AngebotService;
 import com.boristenelsen.registrationTest.services.GehwegInformationService;
 import com.boristenelsen.registrationTest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +25,15 @@ public class UserDashboardController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    AngebotService angebotService;
 
     @GetMapping("/home/dashboard")
     public String dashboard(Model model) {
 
         String email = getEmail();
         List<GehwegInformation> gehwegInformation = gehwegInformationService.getGehWegInformationObjects(email);
-        model.addAttribute("fullusername", getEmail());
+        model.addAttribute("fullusername", getFullUserName());
         model.addAttribute("gehwegInformationList", gehwegInformation);
         return "uebersicht";
     }
@@ -50,6 +54,16 @@ public class UserDashboardController {
         return "angebotsaufforderung";
     }
 
+    @GetMapping("/home/dashboard/angebot/{bestellundId}")
+    public String angebotAnnahme(@PathVariable int bestellundId, Model model) {
+        ClientBestellung cb = gehwegInformationService.loadClientBestellungByID(bestellundId);
+        Angebot angebot = angebotService.loadAngebot(bestellundId);
+
+        model.addAttribute("clientbestellung", cb);
+        model.addAttribute("angebot", angebot);
+        return "angebotannahme";
+
+    }
 
     private String getFullUserName() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

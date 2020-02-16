@@ -191,10 +191,11 @@ public class GehwegInformationService {
     }
 
     @Transactional
-    public void changeStatus(int id) {
+    public int changeStatus(int id) {
         GehwegInformation gehwegInformation = gehwegInformationRepsoitory.findByID(id);
         gehwegInformation.setStatus(true);
         gehwegInformationRepsoitory.save(gehwegInformation);
+        return 1;
 
     }
 }

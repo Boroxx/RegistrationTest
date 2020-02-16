@@ -8,17 +8,15 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AngebotDto {
 
 
-    private List<Position> pickedPositions;
+public class PositionDto {
+
+    private List<Position> chosenPositions;
     private double gesamtPreis;
-    private int bestellungId;
-
-
-
 }

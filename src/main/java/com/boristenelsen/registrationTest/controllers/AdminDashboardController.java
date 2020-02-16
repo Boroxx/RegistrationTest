@@ -1,6 +1,10 @@
 package com.boristenelsen.registrationTest.controllers;
 
+import com.boristenelsen.registrationTest.Exceptions.AngebotExistsAlreadyInDatabaseExcepetion;
+import com.boristenelsen.registrationTest.Wrapper.PositionPreisWrapper;
 import com.boristenelsen.registrationTest.dao.Position;
+import com.boristenelsen.registrationTest.dto.AngebotDto;
+import com.boristenelsen.registrationTest.dto.AngebotTemplateDto;
 import com.boristenelsen.registrationTest.dto.ClientBestellung;
 import com.boristenelsen.registrationTest.services.AngebotService;
 import com.boristenelsen.registrationTest.services.GehwegInformationService;
@@ -40,30 +44,23 @@ public class AdminDashboardController {
 
     @GetMapping("/admin/positionen")
     public String adminpositonen(Model model) {
-
         List<Position> list = positionService.getAllPositionen();
-
         model.addAttribute("positionen", list);
         return "adminPosition";
     }
 
     @GetMapping("/admin/positionenEdit")
     public String adminpositonenEdit(Model model) {
-
         List<Position> list = positionService.getAllPositionen();
-        model.addAttribute("position", new Position());
-
+        model.addAttribute("positionPreisWrapper", new PositionPreisWrapper());
         model.addAttribute("positionen", list);
         return "adminPositionEdit";
     }
 
     @GetMapping("/admin/vergabe/{id}")
     public String adminVergabeStatus(@PathVariable int id) {
-
         gehwegInformationService.changeStatus(id);
-
         return "redirect:/home/adminDashboard";
-
     }
 
 
@@ -78,19 +75,18 @@ public class AdminDashboardController {
     public String createAngebot(@PathVariable int bestellungId, Model model) {
 
         ClientBestellung bestellung = gehwegInformationService.loadClientBestellungByID(bestellungId);
-        List<Position> positionList = angebotService.setUpChosenPositions(bestellung);
+        List<Position> lv = positionService.getAllPositionen();
+        AngebotTemplateDto angebotTemplateDto = angebotService.createAngebotTemplate(bestellung, lv);
 
-        model.addAttribute("positionen", positionList);
+        model.addAttribute("angebottemplate", angebotTemplateDto);
         model.addAttribute("angebot", bestellung);
-
         return "createAngebot";
 
     }
 
-    @GetMapping("/admin/AngebotSuccess/{bestellungId}")
-    public String successAngebot(@PathVariable int bestellungId, Model model) {
 
-        angebotService.registerAngebot(bestellungId);
+    @GetMapping("/admin/AngebotSuccess")
+    public String successAngebot(Model model) {
 
 
         return "AngebotSuccess";
@@ -98,14 +94,17 @@ public class AdminDashboardController {
     }
 
     @PostMapping("/admin/positionenEdit")
-    public String adminpositonenEdit(@ModelAttribute("positionpreis") double preis, @ModelAttribute("ordnungsnummer") String ordnungsnummer, BindingResult bindingResult, Model model) {
-
-        System.out.println(ordnungsnummer);
-        Position position = positionService.findPositionByOrdnungsnummer(ordnungsnummer);
-        positionService.storePosition(position, preis);
-
-
+    public String adminpositonenEdit(@ModelAttribute("positionPreisWrapper") PositionPreisWrapper positionPreisWrapper, BindingResult bindingResult, Model model) {
+        Position position = positionService.findPositionByOrdnungsnummer(positionPreisWrapper.getPositionordnungsnummer());
+        positionService.storePosition(position, positionPreisWrapper.getPositionpreis());
         return "redirect:/admin/positionenEdit";
+    }
+
+    @PostMapping("/admin/createFinalAngebot")
+    public String createFinalAngebot(@ModelAttribute("angebottemplate") AngebotDto angebottemplate, BindingResult bindingResult, Model model) throws AngebotExistsAlreadyInDatabaseExcepetion {
+        angebotService.registerAngebot(angebottemplate);
+
+        return "redirect:/admin/AngebotSuccess";
     }
 
 

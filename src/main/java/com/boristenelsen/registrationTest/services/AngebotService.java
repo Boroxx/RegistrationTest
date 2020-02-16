@@ -1,11 +1,15 @@
 package com.boristenelsen.registrationTest.services;
 
+import com.boristenelsen.registrationTest.Exceptions.AngebotExistsAlreadyInDatabaseExcepetion;
 import com.boristenelsen.registrationTest.dao.Angebot;
 import com.boristenelsen.registrationTest.dao.Position;
+import com.boristenelsen.registrationTest.dto.AngebotDto;
+import com.boristenelsen.registrationTest.dto.AngebotTemplateDto;
 import com.boristenelsen.registrationTest.dto.ClientBestellung;
 import com.boristenelsen.registrationTest.repo.AngebotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,161 +23,161 @@ public class AngebotService {
     @Autowired
     PositionService positionService;
 
-    public void registerAngebot(int bestellungId) {
-        String mengen = "";
-        Angebot angebot = new Angebot();
+    @Transactional
+    public void registerAngebot(AngebotDto angebotDto) throws AngebotExistsAlreadyInDatabaseExcepetion {
 
-        List<Position> positions = positionService.getAllPositionen();
-        List<Position> choosedPositions = new ArrayList<>();
+        Angebot angebot = angebotRepository.findByBestellungId(angebotDto.getBestellungId());
 
-        String pickedpositions = "";
-        double preis = 0.00;
-        for (Position position : positions) {
-            if (position.isChoosen()) {
-                pickedpositions += position.getOrdnungsnummer() + ";";
+        if (angebot != null)
+            throw new AngebotExistsAlreadyInDatabaseExcepetion("Angebot existiert schon mit BestellId " + angebotDto.getBestellungId() + " in Datenbank");
+        else {
+
+            angebot = new Angebot();
+            String mengen = "";
+            String pickedpositions = "";
+            double preis = 0.00;
+
+
+            for (Position position : angebotDto.getPickedPositions()) {
                 mengen += position.getMenge() + ";";
-                double temp = position.getMenge() * position.getPreis();
-                preis += temp;
+                if (position.isChoosen()) {
+                    pickedpositions += position.getOrdnungsnummer() + ";";
+                    double temp = position.getMenge() * position.getPreis();
+                    preis += temp;
+
+                }
+
             }
+            angebot.setPickedPositions(pickedpositions);
+            angebot.setBestellungId(angebotDto.getBestellungId());
+            angebot.setAllemengen(mengen);
+            angebot.setGesamtPreis(preis);
+
+
+            angebotRepository.save(angebot);
         }
-        angebot.setPickedPositions(pickedpositions);
-        angebot.setBestellungId(bestellungId);
-        angebot.setAllemengen(mengen);
-        angebot.setGesamtPreis(preis);
-
-        angebotRepository.save(angebot);
-
-
     }
 
-    public Angebot loadAngebot() {
+    public Angebot loadAngebot(int bestellungId) {
 
-        return new Angebot();
+        return angebotRepository.findByBestellungId(bestellungId);
     }
 
 
-    public List<Position> setUpChosenPositions(ClientBestellung bestellung) {
+    public AngebotTemplateDto createAngebotTemplate(ClientBestellung bestellung, List<Position> lv) {
 
-        Position pos;
+        List<Position> template = new ArrayList<>();
+        for (Position pos : lv) {
 
-
-        double quadratmeter;
-        double gesamt;
-
-        for (Position position : positionService.getAllPositionen()) {
-            position.setChoosen(false);
-            position.setMenge(1.00);
-            positionService.savePosition(position);
-
-        }
+            if (pos.getOrdnungsnummer().equals("0000005")) {
+                pos.setChoosen(true);
+                pos.setMenge(Double.parseDouble((bestellung.getGehwegm2())));
 
 
-        //platten
-        pos = positionService.findPositionByOrdnungsnummer("0000005");
-        pos.setChoosen(true);
-        pos.setMenge(Double.parseDouble((bestellung.getGehwegm2())));
-        positionService.savePosition(pos);
-
-        //Boden ausheben
-
-        pos = positionService.findPositionByOrdnungsnummer("0000008");
-        pos.setChoosen(true);
-
-        quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
-        gesamt = quadratmeter * 0.7 * 0.67;
-        pos.setMenge(gesamt);
-        positionService.savePosition(pos);
-
-        //Boden von hand ausheben
-        pos = positionService.findPositionByOrdnungsnummer("0000009");
-        pos.setChoosen(true);
-        quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
-        gesamt = quadratmeter * 0.7 * 0.33;
-        pos.setMenge(gesamt);
-        positionService.savePosition(pos);
-
-        //Boden laden abfahren
-        pos = positionService.findPositionByOrdnungsnummer("0000010");
-        pos.setChoosen(true);
-        double temp = Double.parseDouble(bestellung.getGehwegm2()) * 0.7;
-        pos.setMenge(temp);
-        positionService.savePosition(pos);
-
-        //Entsorgungsgebühr
-        pos = positionService.findPositionByOrdnungsnummer("0000011");
-        pos.setChoosen(true);
-        temp = Double.parseDouble(bestellung.getGehwegm2()) * 0.7;
-        pos.setMenge(temp);
-        positionService.savePosition(pos);
-
-        pos = positionService.findPositionByOrdnungsnummer("0000012");
-        pos.setChoosen(true);
-        quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
-        gesamt = quadratmeter * 0.2;
-
-        pos.setMenge(gesamt);
-        positionService.savePosition(pos);
-
-        pos = positionService.findPositionByOrdnungsnummer("0000013");
-        pos.setChoosen(true);
-        pos.setMenge(7.00);
-        positionService.savePosition(pos);
-
-        pos = positionService.findPositionByOrdnungsnummer("0000014");
-        pos.setChoosen(true);
-        pos.setMenge(7.00);
-        positionService.savePosition(pos);
-
-        pos = positionService.findPositionByOrdnungsnummer("0000019");
-        pos.setChoosen(true);
-        pos.setMenge(Double.parseDouble((bestellung.getGehwegm2())));
-        positionService.savePosition(pos);
-
-        pos = positionService.findPositionByOrdnungsnummer("0000022");
-        pos.setChoosen(true);
-        quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
-        gesamt = quadratmeter * 0.2;
-
-        pos.setMenge(gesamt);
-        positionService.savePosition(pos);
-
-        pos = positionService.findPositionByOrdnungsnummer("0000022");
-        pos.setChoosen(true);
-        pos.setMenge(7.00);
-        positionService.savePosition(pos);
-
-        pos = positionService.findPositionByOrdnungsnummer("0000027");
-        pos.setChoosen(true);
-        quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
-        gesamt = quadratmeter * 0.05;
-
-        pos.setMenge(gesamt);
-        positionService.savePosition(pos);
+            }
+            if (pos.getOrdnungsnummer().equals("0000008")) {
+                pos.setChoosen(true);
+                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double gesamt = quadratmeter * 0.7 * 0.67;
+                pos.setMenge(gesamt);
 
 
-        if (bestellung.getVorgarten().equals("ja")) {
-            Position po = positionService.findPositionByOrdnungsnummer("0000025");
-            po.setChoosen(true);
-            positionService.savePosition(po);
+            }
+            if (pos.getOrdnungsnummer().equals("0000009")) {
+                pos.setChoosen(true);
+                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double gesamt = quadratmeter * 0.7 * 0.33;
+                pos.setMenge(gesamt);
 
-            po = positionService.findPositionByOrdnungsnummer("0000020");//Randstein liefern
-            po.setChoosen(true);
-            positionService.savePosition(po);
+            }
+            if (pos.getOrdnungsnummer().equals("0000010")) {
+                pos.setChoosen(true);
+                double temp = Double.parseDouble(bestellung.getGehwegm2()) * 0.7;
+                pos.setMenge(temp);
 
-        }
-        if (bestellung.getHindernis().contains("Kappe")) {
-            System.out.println("BLAA");
-            Position po = positionService.findPositionByOrdnungsnummer("0000007");
-            po.setChoosen(true);
-            positionService.savePosition(po);
-            po = positionService.findPositionByOrdnungsnummer("0000023");//Randstein liefern
-            po.setChoosen(true);
-            positionService.savePosition(po);
+            }
+            if (pos.getOrdnungsnummer().equals("0000011")) {
+                pos.setChoosen(true);
+                double temp = Double.parseDouble(bestellung.getGehwegm2()) * 0.7;
+                pos.setMenge(temp);
 
+            }
+            if (pos.getOrdnungsnummer().equals("0000012")) {
+                pos.setChoosen(true);
+                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double gesamt = quadratmeter * 0.2;
+
+                pos.setMenge(gesamt);
+
+            }
+            if (pos.getOrdnungsnummer().equals("0000013")) {
+                pos.setChoosen(true);
+                pos.setMenge(7.00);
+            }
+            if (pos.getOrdnungsnummer().equals("0000014")) {
+                pos.setChoosen(true);
+                pos.setMenge(7.00);
+
+            }
+            if (pos.getOrdnungsnummer().equals("0000019")) {
+                pos.setChoosen(true);
+                pos.setMenge(Double.parseDouble((bestellung.getGehwegm2())));
+            }
+            if (pos.getOrdnungsnummer().equals("0000022")) {
+                pos.setChoosen(true);
+                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double gesamt = quadratmeter * 0.2;
+
+
+                pos.setMenge(gesamt);
+
+            }
+            if (pos.getOrdnungsnummer().equals("0000023")) {
+                pos.setChoosen(true);
+                pos.setMenge(7.00);
+
+            }
+            if (pos.getOrdnungsnummer().equals("0000027")) {
+                pos.setChoosen(true);
+                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double gesamt = quadratmeter * 0.05;
+
+                pos.setMenge(gesamt);
+
+            }
+
+            if (bestellung.getVorgarten().equals("ja")) {
+                if (pos.getOrdnungsnummer().equals("0000025")) {
+                    pos.setChoosen(true);
+
+                }
+                if (pos.getOrdnungsnummer().equals("0000020")) {
+                    pos.setChoosen(true);
+
+                }
+
+            }
+
+            if (bestellung.getHindernis().contains("Kappe")) {
+                if (pos.getOrdnungsnummer().equals("0000007")) {
+                    pos.setChoosen(true);
+
+                }
+                if (pos.getOrdnungsnummer().equals("0000023")) {
+                    pos.setChoosen(true);
+
+                }
+
+            }
+
+
+            template.add(pos);
 
         }
-
-        return positionService.getAllPositionen();
+        AngebotTemplateDto angebotTemplateDto = new AngebotTemplateDto();
+        angebotTemplateDto.setBestellungId(bestellung.getId());
+        angebotTemplateDto.setPickedPositions(template);
+        return angebotTemplateDto;
 
 
     }
