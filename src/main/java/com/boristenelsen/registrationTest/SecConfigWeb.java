@@ -4,7 +4,6 @@ import com.boristenelsen.registrationTest.services.PortlyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,8 +30,16 @@ public class SecConfigWeb extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/resources/**").permitAll()
-                .antMatchers("/" , "/home").hasRole("USER").and().formLogin().loginPage("/login").defaultSuccessUrl("/home").permitAll();
+                .antMatchers("/resources/**").hasAnyRole("ANONYMOUS,USER", "ADMIN")
+                .antMatchers("/login").hasAnyRole("ANONYMOUS", "USER", "ADMIN")
+                .antMatchers("/registration").hasAnyRole("ANONYMOUS", "USER", "ADMIN")
+                .antMatchers("/home").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/home/").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/home/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/admin/").hasAnyRole("ADMIN")
+                .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/home");
 
         /*Logs out and clears the security Context*/
         http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

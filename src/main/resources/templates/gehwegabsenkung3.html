@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en">
 
 
 <head>
@@ -16,32 +16,13 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/home"><img alt="portly" src="/portly_transparent_100x40.png"></a>
-    <a class="nav-link active" href="/home">Home</a>
-    <a class="nav-link" href="/login" sec:authorize="!isAuthenticated()">Anmelden</a>
-    <a class="nav-link" href="/registration" sec:authorize="!isAuthenticated()">Registrieren</a>
-
-    <a class="nav-link" href="/home/dashboard" sec:authorize="isAuthenticated()">Dashboard</a>
-    <a class="nav-link" href="/logout" sec:authorize="isAuthenticated()">Abmelden</a>
-</nav>
+<div th:replace="fragmentheader :: header">...</div>
 
 
 <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action bg-light" href="/home/dashboard"><i
-                    class="fas fa-bars"></i>
-                Übersicht</a>
-            <a class="list-group-item list-group-item-action bg-light" href="/home/dashboard/profil"><i
-                    class="fas fa-user"></i> Profil</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-info-circle"></i>
-                Status</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-question-circle"></i>
-                Hilfe</a>
-        </div>
-    </div>
+    <div th:replace="fragmentsidebar :: sidebar">...</div>
+
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
@@ -245,17 +226,33 @@
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
 <script>
-    $('#genehmigung').change(function () {
-        var fileName = $(this).val();
-        //replace the "Choose a file" label
-        $(this).next('#genehmigunglabel').html(fileName);
-    });
+    var bilder = document.getElementById('gehwegbilder');
+    var text = document.getElementById('gehwegbilderlabel');
+    bilder.addEventListener('change', showFileName);
 
-    $('#gehwegbilder').change(function () {
-        var fileName = $(this).val();
-        //replace the "Choose a file" label
-        $(this).next('#gehwegbilderlabel').html(fileName);
-    });
+    function showFileName(event) {
+
+        var input = event.srcElement;
+        var filename = "";
+        for (var i = 0; i < input.files.length; i++) {
+            filename += input.files[i].name + '; ';
+        }
+        text.textContent = filename;
+
+    }
+
+
+    var genehmigung = document.getElementById('genehmigung');
+    var genehmigunglabel = document.getElementById('genehmigunglabel');
+    genehmigung.addEventListener('change', showSingelFilename);
+
+    function showSingelFilename(event) {
+
+        var input = event.srcElement;
+        var filename = input.files[0].name;
+        genehmigunglabel.textContent = filename;
+
+    }
 </script>
 </body>
 </html>

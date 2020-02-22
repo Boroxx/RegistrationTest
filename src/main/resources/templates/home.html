@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en">
 
 
 <head>
@@ -16,89 +16,79 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/home"><img src="/portly_transparent_100x40.png" alt="portly"></a>
-    <a class="nav-link active" href="/home">Home</a>
-    <a sec:authorize="!isAuthenticated()" class="nav-link" href="/login">Anmelden</a>
-    <a sec:authorize="!isAuthenticated()" class="nav-link" href="/registration">Registrieren</a>
-
-    <a sec:authorize="isAuthenticated()" class="nav-link" href="/home/dashboard">Dashboard</a>
-    <a sec:authorize="isAuthenticated()" class="nav-link" href="/logout">Abmelden</a>
-</nav>
+<div th:replace="fragmentheader :: header">...</div>
 
 
-<div class="d-flex justify-content-center baumodule">
-    <div class="jumbotron jumbotron-fluid" style="background-color: #FFFFFF!important;">
-        <div class="container">
-            <h1 class="display-4">Eine Plattform die jedem Nutzer das Leben erleichtert.</h1>
-            <p class="lead">Sie wissen nicht wieviel ihr Bauvorhaben kostet und Sie haben keine Ahnung an wen Sie sich
-                wenden sollen? <br>
-                Kein Problem Portly ist genau dafür konzipiert worden. <br>
-                Wir von Portly kümmern uns direkt online um ihr Bauvorhaben und leiten dieses an verschiedene Firmen
-                unserer Wahl weiter. <br></p>
-        </div>
-    </div>
+<div class="d-flex justify-content-center" style="padding-top:10%;padding-bottom:100%">
+
+    <div class="container">
+        <h1 class="display-4">Eine Plattform die jedem Nutzer das Leben erleichtert.</h1>
+        <p class="lead">Sie wissen nicht wieviel ihr Bauvorhaben kostet und Sie haben keine Ahnung an wen Sie sich
+            wenden sollen? <br>
+            Kein Problem Portly ist genau dafür konzipiert worden. <br>
+            Wir von Portly kümmern uns direkt online um ihr Bauvorhaben und liefern Ihnen so schnell wie möglich
+            ein Online-Angebot. <br></p>
 
 
-</div>
-
-
-<div class="container baumodule">
-    <div class="row">
-        <div class="col-sm">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
 
                                           <span style="color: dodgerblue;">
                                               <i class="fas fa-home icon-2x"></i>
                                           </span>
-                        Bodenplatte
+                            Bodenplatte
 
-                    </h5>
-                    <p class="card-text">Sie brauchen eine Bodenplatte für ihr Haus und wissen nicht an welches
-                        Unternehmen Sie sich wenden sollen?</p>
-                    <a class="btn btn-primary" href="">Angebotanfragen</a>
+                        </h5>
+                        <p class="card-text">Sie brauchen eine Bodenplatte für ihr Haus und wissen nicht an welches
+                            Unternehmen Sie sich wenden sollen?</p>
+                        <a class="btn btn-primary" href="">Angebotanfragen</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
                                          <span style="color: dodgerblue;">
                                             <i class="fas fa-truck-pickup"></i>
                                          </span>
-                        Gehwegabsenkung
-                    </h5>
-                    <p class="card-text">Sie brauchen eine Gehwegabsenkung vor ihrem Haus und wissen nicht an welches
-                        Unternehmen Sie sich wenden sollen?</p>
-                    <a class="btn btn-primary" href="/home/gehwegabsenkung">Angebot anfragen</a>
+                            Gehwegabsenkung
+                        </h5>
+                        <p class="card-text">Sie brauchen eine Gehwegabsenkung vor ihrem Haus und wissen nicht an
+                            welches
+                            Unternehmen Sie sich wenden sollen?</p>
+                        <a class="btn btn-primary" href="/home/gehwegabsenkung">Angebot anfragen</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
                                         <span style="color: dodgerblue;">
                                             <i class="fas fa-water"></i>
                                           </span>
-                        Kanal
-                    </h5>
-                    <p class="card-text">Sie brauchen einen Kanal für ihr Haus und wissen nicht an welches Unternehmen
-                        Sie sich wenden sollen?</p>
-                    <button class="btn btn-primary" disabled>Angebot anfragen</button>
+                            Kanal
+                        </h5>
+                        <p class="card-text">Sie brauchen einen Kanal für ihr Haus und wissen nicht an welches
+                            Unternehmen
+                            Sie sich wenden sollen?</p>
+                        <button class="btn btn-primary" disabled>Angebot anfragen</button>
+                    </div>
                 </div>
             </div>
+
+
         </div>
     </div>
-
-
 </div>
 
 
 <footer>
+
 
 </footer>
 

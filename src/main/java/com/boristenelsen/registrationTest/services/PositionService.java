@@ -4,14 +4,14 @@ package com.boristenelsen.registrationTest.services;
 import com.boristenelsen.registrationTest.dao.Position;
 import com.boristenelsen.registrationTest.repo.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,12 +34,11 @@ public class PositionService {
 
         try {
 
-            Resource resource = resourceLoader.getResource("classpath:/static/gehwegabsenkung_positions.txt");
 
-            File file = resource.getFile();
-            System.out.println(file.getAbsolutePath());
+            InputStream inputStream = new ClassPathResource("static/gehwegabsenkung_positions.txt").getInputStream();
 
-            BufferedReader br = new BufferedReader(new FileReader(file));
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(";");

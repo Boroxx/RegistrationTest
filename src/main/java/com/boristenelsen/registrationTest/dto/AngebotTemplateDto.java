@@ -21,4 +21,5 @@ public class AngebotTemplateDto {
     private List<String> mengen;
     private double gesamtPreis;
     private int bestellungId;
+    private String status;
 }

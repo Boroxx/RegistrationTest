@@ -1,29 +1,41 @@
 package com.boristenelsen.registrationTest.dao;
 
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.Date;
 
-@Entity
 @Data
-public class Angebot {
-
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Auftrag {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid",
             strategy = "uuid")
-    private String angebotId;
+    private String auftragId;
     private int bestellungId;
     private double gesamtPreis;
     private String pickedPositions;
     private String allemengen;
-    private String status;
+    private Date created;
+
+
+    @PrePersist
+    protected void onCreate() {
+        created = new Date();
+    }
 
 
     public double getGesamtPreis() {
@@ -34,5 +46,4 @@ public class Angebot {
 
         return Double.parseDouble(temp);
     }
-
 }

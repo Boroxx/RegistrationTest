@@ -17,11 +17,18 @@ import java.util.List;
 @Service
 public class AngebotService {
 
+    /*Angebote haben einen Status , entweder sind Sie offen oder geschlossen, falls Sie offen sind werden Sie als offene Angebote angezeigt,
+     * falls geschlossen, dann werden Sie als Aktiver Auftrag angezeigt
+     *
+     * */
     @Autowired
     AngebotRepository angebotRepository;
 
     @Autowired
     PositionService positionService;
+
+    @Autowired
+    GehwegInformationService gehwegInformationService;
 
     @Transactional
     public void registerAngebot(AngebotDto angebotDto) throws AngebotExistsAlreadyInDatabaseExcepetion {
@@ -52,6 +59,7 @@ public class AngebotService {
             angebot.setBestellungId(angebotDto.getBestellungId());
             angebot.setAllemengen(mengen);
             angebot.setGesamtPreis(preis);
+            angebot.setStatus("offen");
 
 
             angebotRepository.save(angebot);
@@ -61,6 +69,35 @@ public class AngebotService {
     public Angebot loadAngebot(int bestellungId) {
 
         return angebotRepository.findByBestellungId(bestellungId);
+    }
+
+    public Angebot loadAngebot(String angebotId) {
+
+        return angebotRepository.findByAngebotId(angebotId);
+    }
+
+    public List<AngebotDto> loadAlleOffenenAngebote() {
+        List<Angebot> angebotList = angebotRepository.findAll();
+
+        List<AngebotDto> angebotDtoList = new ArrayList<>();
+
+        for (Angebot angebot : angebotList) {
+            if (angebot.getStatus().equals("offen")) {
+                ClientBestellung cb = gehwegInformationService.loadClientBestellungByID(angebot.getBestellungId());
+                AngebotDto angebotDto = AngebotDto.builder()
+                        .bestellungId(angebot.getBestellungId())
+                        .gesamtPreis(angebot.getGesamtPreis())
+                        .clientBestellung(cb)
+                        .angebotId(angebot.getAngebotId())
+                        .build();
+                angebotDtoList.add(angebotDto);
+            }
+        }
+        return angebotDtoList;
+    }
+
+    public List<Angebot> loadAllAngebote() {
+        return angebotRepository.findAll();
     }
 
 
@@ -180,5 +217,9 @@ public class AngebotService {
         return angebotTemplateDto;
 
 
+    }
+
+    public void saveAngebot(Angebot angebot) {
+        angebotRepository.save(angebot);
     }
 }

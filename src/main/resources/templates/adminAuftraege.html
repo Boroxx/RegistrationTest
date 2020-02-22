@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en " xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
-    <title>Position Dashboard</title>
+    <title>Aufträge</title>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
     <link href="/login.css" rel="stylesheet" type="text/css"/>
     <link href="/all.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+
 
 <div th:replace="fragmentheader :: header">...</div>
 
@@ -23,16 +24,16 @@
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
+
         <div class="container-fluid">
             <h1 class="mt-4">Wilkommen, Admin!</h1>
-
-            <h5>Hier hast du eine Übersicht über aller Offenen Aufträge</h5>
+            <h5>Hier hast du eine Übersicht aller Aktiven Aufträge </h5>
         </div>
 
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">AngebotId</th>
+                <th scope="col">Annahme am</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Strasse,Haus-Nr</th>
@@ -44,26 +45,21 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="angebot : ${angebotListe}">
+            <tr th:each="auftrag : ${auftraege}">
 
-                <td th:text="${angebot.angebotId}">Datum</td>
-                <td th:text="${angebot.clientBestellung.name}"></td>
-                <td th:text="${angebot.clientBestellung.email}"></td>
-                <td th:text="${angebot.clientBestellung.strasse_hausnummer}"></td>
-                <td><span th:text="${angebot.clientBestellung.stadt_plz}">Euro</span></td>
-                <td><span th:text="${angebot.gesamtPreis}"></span> Euro</td>
+                <td th:text="${#dates.format(auftrag.created, 'dd-MMM-yyyy')}">Datum</td>
+                <td th:text="${auftrag.clientBestellung.name}"></td>
+                <td th:text="${auftrag.clientBestellung.email}"></td>
+                <td th:text="${auftrag.clientBestellung.strasse_hausnummer}"></td>
+                <td><span th:text="${auftrag.clientBestellung.stadt_plz}">Euro</span></td>
+                <td><span th:text="${auftrag.gesamtPreis}"></span> Euro</td>
 
-                <td><a th:href="@{'/home/dashboard/' + ${angebot.clientBestellung.id}}"><span
+                <td><a th:href="@{'/home/dashboard/' + ${auftrag.clientBestellung.id}}"><span
                         style="color:dodgerblue"><i
                         class="fas fa-info-circle fa-2x"></i></span></a></td>
             </tr>
             </tbody>
         </table>
-
-        <div class="container">
-
-
-        </div>
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -71,3 +67,5 @@
 
 </body>
 </html>
+
+

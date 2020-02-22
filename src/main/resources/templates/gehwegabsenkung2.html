@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en">
 
 
 <head>
@@ -16,32 +16,14 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/home"><img alt="portly" src="/portly_transparent_100x40.png"></a>
-    <a class="nav-link active" href="/home">Home</a>
-    <a class="nav-link" href="/login" sec:authorize="!isAuthenticated()">Anmelden</a>
-    <a class="nav-link" href="/registration" sec:authorize="!isAuthenticated()">Registrieren</a>
+<div th:replace="fragmentheader :: header">...</div>
 
-    <a class="nav-link" href="/home/dashboard" sec:authorize="isAuthenticated()">Dashboard</a>
-    <a class="nav-link" href="/logout" sec:authorize="isAuthenticated()">Abmelden</a>
-</nav>
 
 
 <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action bg-light" href="/home/dashboard"><i
-                    class="fas fa-bars"></i>
-                Übersicht</a>
-            <a class="list-group-item list-group-item-action bg-light" href="/home/dashboard/profil"><i
-                    class="fas fa-user"></i> Profil</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-info-circle"></i>
-                Status</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-question-circle"></i>
-                Hilfe</a>
-        </div>
-    </div>
+    <div th:replace="fragmentsidebar :: sidebar">...</div>
+
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
@@ -73,12 +55,7 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-4">
-                            <div class="alert alert-warning " role="alert"
-                                 th:if="${#fields.hasErrors('strasse_hausnummer')}">
-                                Eingabe ist leer
-                            </div>
-                        </div>
+
                     </div>
 
                     <div class="form-group row">
@@ -91,20 +68,25 @@
 
                         </div>
 
-                        <div class="col-sm-4">
-                            <div class="alert alert-warning " role="alert" th:if="${#fields.hasErrors('stadt_plz')}">
-                                Eingabe ist leer
-                            </div>
-                        </div>
+
                     </div>
                     <br>
                     <div class="form-group row">
                         <div class="col-sm-4"></div>
-                        <div class="col-sm-8"><input class="btn btn-primary" type="submit" value="Fertig">
+                        <div class="col-sm-8"><input class="btn btn-primary" onclick="activateLink()" type="submit"
+                                                     value="Fertig">
                         </div>
 
                     </div>
 
+
+                    <div class="alert alert-primary " role="alert"
+                         th:if="${#fields.hasErrors('strasse_hausnummer')}">
+                        Das Feld Strasse,Hausnummer darf nicht leer bleiben.
+                    </div>
+                    <div class="alert alert-primary" role="alert" th:if="${#fields.hasErrors('stadt_plz')}">
+                        Das Feld Stadt,Postleitzahl darf nicht leer bleiben.
+                    </div>
 
                 </form>
 
@@ -119,9 +101,6 @@
                         <a href="/home/gehwegabsenkung"><i class="fas fa-arrow-left fa-3x"></i></a>
 
                     </span>
-                    <span class="ml-auto" style="color: dodgerblue;">
-                         <a href="/home/gehwegabsenkung3"><i class="fas fa-arrow-right fa-3x"></i></a>
-                 </span>
 
                 </div>
 
@@ -139,6 +118,7 @@
 <footer>
 
 </footer>
+
 
 <script crossorigin="anonymous"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

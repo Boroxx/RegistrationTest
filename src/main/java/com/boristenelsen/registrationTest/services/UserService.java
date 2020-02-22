@@ -9,6 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.security.Principal;
+
 @Service
 public class UserService {
 
@@ -42,6 +44,9 @@ public class UserService {
         return new User();
     }
 
+    public int userCounter() {
+        return userRepository.findAll().size();
+    }
 
     private boolean emailExists(String email) {
         User registered = userRepository.findByEmail(email);
@@ -67,5 +72,11 @@ public class UserService {
 
     public User loadUser(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    public boolean isUserAdmin(Principal principal) {
+        String role = userRepository.findByEmail((principal.getName())).getRole();
+        return role.equals("ROLE_ADMIN");
+
     }
 }

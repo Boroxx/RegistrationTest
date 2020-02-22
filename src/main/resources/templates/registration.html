@@ -15,12 +15,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/registration"><img src="/portly_transparent_100x40.png" alt="portly"></a>
-    <a class="nav-link active" href="/registration">Home</a>
-    <a class="nav-link" href="/login">Anmelden</a>
-    <a class="nav-link" href="/registration">Registrieren</a>
-</nav>
+<div th:replace="fragmentheader :: header">...</div>
 
 <div class="d-flex justify-content-center">
 
@@ -42,7 +37,7 @@
                     <label for="vornameId">Vorname:</label>
                     <input class="form-control" id="vornameId" th:field="*{vorname}">
                     <small class="form-text text-muted" id="vornameIdHelp">Geben Sie hier ihren Vornamen ein</small>
-                    <div class="alert alert-warning " role="alert" th:if="${#fields.hasErrors('vorname')}">
+                    <div class="alert alert-primary" role="alert" th:if="${#fields.hasErrors('vorname')}">
                         Vorname nicht valide
                     </div>
 
@@ -52,7 +47,7 @@
                     <label for="nachnameId">Nachname:</label>
                     <input class="form-control" id="nachnameId" th:field="*{nachname}">
                     <small id="nachnameIdHelp" class="form-text text-muted">Geben Sie hier ihren Nachnamen ein</small>
-                    <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('nachname')}">
+                    <div class="alert alert-primary" role="alert" th:if="${#fields.hasErrors('nachname')}">
                         Nachname nicht valide
                     </div>
 
@@ -63,7 +58,7 @@
                     <input class="form-control" id="phonenumberId" th:field="*{phonenumber}">
                     <small class="form-text text-muted" id="phonenumberIdHelp">Geben Sie hier ihre Telefonnummer
                         ein</small>
-                    <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('phonenumber')}">
+                    <div class="alert alert-primary" role="alert" th:if="${#fields.hasErrors('phonenumber')}">
                         Telefonnummer nicht valide
                     </div>
                 </div>
@@ -72,7 +67,7 @@
                     <label for="emailId">Email:</label>
                     <input class="form-control" id="emailId" th:field="*{email}">
                     <small id="emailHelpId" class="form-text text-muted">Geben Sie hier ihre Email ein</small>
-                    <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('email')}">
+                    <div class="alert alert-primary" role="alert" th:if="${#fields.hasErrors('email')}">
                         Email nicht valide oder bereits vergeben!
                     </div>
                 </div>
@@ -80,9 +75,10 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Passwort</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" th:field="*{password}">
-                    <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('password')}">
-                        Passwort muss mindestens 8 Zeichen sowie Groß- und Kleinbuchstaben enthalten<br>
-                        Ausserdem sollte auch ein Sonderzeichen mit enthalten sein.
+                    <div class="alert alert-primary" role="alert" th:if="${#fields.hasErrors('password')}">
+                        Passwort muss <b>insgesamt mindestens 6 Zeichen</b> sowie Groß- und Kleinbuchstaben
+                        enthalten.<br>
+                        Ausserdem sollte auch <b>ein Sonderzeichen</b> sowie <b>eine Zahl</b> mit enthalten sein.
                     </div>
                 </div>
 
@@ -97,7 +93,7 @@
                     <input class="form-control" id="strasse_hausnummerId" th:field="*{strasse_hausnummer}">
                     <small class="form-text text-muted" id="strasseHelp">Geben sie hier ihre Strasse und Hausnummer
                         ein</small>
-                    <div class="alert alert-warning " role="alert" th:if="${#fields.hasErrors('strasse_hausnummer')}">
+                    <div class="alert alert-primary " role="alert" th:if="${#fields.hasErrors('strasse_hausnummer')}">
                         Eingabe nicht valide
                     </div>
 
@@ -107,8 +103,8 @@
                     <label for="stadt_plzId">Strasse und Plz:</label>
                     <input class="form-control" id="stadt_plzId" th:field="*{stadt_plz}">
                     <small class="form-text text-muted" id="stadt_plzIdHelp">Geben Sie hier ihre Stadt und ihre
-                        Postleithal an</small>
-                    <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('stadt_plz')}">
+                        Postleitzahl an</small>
+                    <div class="alert alert-primary" role="alert" th:if="${#fields.hasErrors('stadt_plz')}">
                         Eingabe nicht valide
                     </div>
 
@@ -128,6 +124,10 @@
 
 </footer>
 
+<script>
+    var telefon = document.getElementById('phonenumberId');
+    telefon.value = '';
+</script>
 <script crossorigin="anonymous"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>

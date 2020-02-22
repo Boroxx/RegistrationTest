@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="bg-dark border-right h100" id="sidebar-wrapper" th:fragment="sidebar">
+    <div class="list-group list-group-flush">
+        <a class="list-group-item  bg-dark " href="/home/dashboard"><i
+                class="fas fa-bars"></i>
+            Übersicht</a>
+        <a class="list-group-item  bg-dark " href="/home/dashboard/profil"><i
+                class="fas fa-user"></i> Profil</a>
+        <a class="list-group-item  bg-dark " href="#"><i class="fas fa-info-circle"></i>
+            Status</a>
+        <a class="list-group-item  bg-dark " href="#"><i class="fas fa-question-circle"></i>
+            Hilfe</a>
+    </div>
+</div>
+
+<div class="bg-dark border-right" id="sidebar-wrapper2" th:fragment="adminSidebar">
+    <div class="list-group list-group-flush">
+        <a class="list-group-item  bg-dark" href="/home/adminDashboard"><i class="fas fa-bars"></i>
+            Angebotsanfragen</a>
+        <a class="list-group-item  bg-dark" href="/admin/AngebotSuccess"><i class="fas fa-bars"></i>
+            Offene Angebote</a>
+        <a class="list-group-item  bg-dark" href="/home/adminAuftraege"><i class="fas fa-info-circle"></i>
+            Aktive Aufträge</a>
+        <a class="list-group-item  bg-dark" href="#"><i class="fas fa-user"></i>
+            Nachunternehmer-Katalog</a>
+        <a class="list-group-item  bg-dark" href="/admin/positionen"><i class="fas fa-question-circle"></i>
+            Gehwegabenkung LV</a>
+        <a class="list-group-item  bg-dark" href="/admin/statistik"><i class="fas fa-question-circle"></i>
+            Statistiken</a>
+    </div>
+</div>
+</body>
+</html>

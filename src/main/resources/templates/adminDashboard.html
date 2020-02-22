@@ -13,40 +13,20 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/home"><img alt="portly" src="/portly_transparent_100x40.png"></a>
-    <a class="nav-link active" href="/home">Home</a>
-    <a class="nav-link" href="/login" sec:authorize="!isAuthenticated()">Anmelden</a>
-    <a class="nav-link" href="/registration" sec:authorize="!isAuthenticated()">Registrieren</a>
 
+<div th:replace="fragmentheader::header"></div>
 
-    <a class="nav-link" href="/home/dashboard" sec:authorize="isAuthenticated()">Dashboard</a>
-    <a class="nav-link" href="/logout" sec:authorize="isAuthenticated()">Abmelden</a>
-</nav>
 
 <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action bg-light" href="/home/adminDashboard"><i
-                    class="fas fa-bars"></i>
-                Angebotsanfragen</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-user"></i>
-                Nachunternehmer-Katalog</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#"><i class="fas fa-info-circle"></i>
-                Aktive Aufträge</a>
-            <a class="list-group-item list-group-item-action bg-light" href="/admin/positionen"><i
-                    class="fas fa-question-circle"></i>
-                Position</a>
-        </div>
-    </div>
+    <div th:replace="fragmentsidebar :: adminSidebar">...</div>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
         <div class="container-fluid">
             <h1 class="mt-4">Wilkommen, Admin!</h1>
-            <p>Hier hast du eine Übersicht aller Angebotsaufforderungen der Nutzer</p>
+            <h5>Hier hast du eine Übersicht aller Angebotsaufforderungen der Nutzer</h5>
         </div>
 
         <table class="table">
@@ -57,7 +37,6 @@
                 <th scope="col">Email</th>
                 <th scope="col">Telefon</th>
                 <th scope="col">Gehweg</th>
-                <th scope="col">Preis in Euro</th>
                 <th scope="col">Aktion</th>
                 <th scope="col">Aktion</th>
                 <th scope="col">Details</th>
@@ -77,7 +56,6 @@
                 <td th:text="${bestellung.email}"></td>
                 <td th:text="${bestellung.telefon}"></td>
                 <td th:text="${bestellung.gehwegm2}"></td>
-                <td th:text="${bestellung.preis}"></td>
                 <td><a class="btn btn-primary" th:href="'/admin/createAngebot/'+${bestellung.id}">Angebot erstellen</a>
                 </td>
                 <td><a th:href="@{'/admin/vergabe/' + ${bestellung.id}}"><i class="fas fa-check"></i></a></td>

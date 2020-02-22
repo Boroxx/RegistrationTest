@@ -5,10 +5,9 @@ import com.boristenelsen.registrationTest.Wrapper.PositionPreisWrapper;
 import com.boristenelsen.registrationTest.dao.Position;
 import com.boristenelsen.registrationTest.dto.AngebotDto;
 import com.boristenelsen.registrationTest.dto.AngebotTemplateDto;
+import com.boristenelsen.registrationTest.dto.AuftragDto;
 import com.boristenelsen.registrationTest.dto.ClientBestellung;
-import com.boristenelsen.registrationTest.services.AngebotService;
-import com.boristenelsen.registrationTest.services.GehwegInformationService;
-import com.boristenelsen.registrationTest.services.PositionService;
+import com.boristenelsen.registrationTest.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +31,15 @@ public class AdminDashboardController {
     @Autowired
     PositionService positionService;
 
+    @Autowired
+    AuftragService auftragService;
+
+    @Autowired
+    StatistikService statistikService;
+
+    @Autowired
+    UserService userService;
+
 
     @GetMapping("/home/adminDashboard")
     public String adminDashboard(Model model) {
@@ -39,8 +47,21 @@ public class AdminDashboardController {
         List<ClientBestellung> list = gehwegInformationService.getAllAnfragen();
 
         model.addAttribute("bestellungen", list);
+
         return "adminDashboard";
     }
+
+    @GetMapping("/home/adminAuftraege")
+    public String adminAuftraege(Model model) {
+
+
+        List<AuftragDto> auftraege = auftragService.loadAuftraege();
+        model.addAttribute("auftraege", auftraege);
+
+        return "adminAuftraege";
+    }
+
+
 
     @GetMapping("/admin/positionen")
     public String adminpositonen(Model model) {
@@ -89,7 +110,59 @@ public class AdminDashboardController {
     public String successAngebot(Model model) {
 
 
+        List<AngebotDto> angebotListe = angebotService.loadAlleOffenenAngebote();
+        model.addAttribute("angebotListe", angebotListe);
         return "AngebotSuccess";
+
+
+    }
+
+    @GetMapping("/admin/statistik")
+    public String statistiken(Model model) {
+
+        List<AuftragDto> auftragList = auftragService.loadAuftraege();
+        int januar = 0, februar = 0, maerz = 0, april = 0, mai = 0, juni = 0, juli = 0, august = 0, september = 0, oktober = 0, november = 0, dezember = 0;
+        for (AuftragDto auftrag : auftragList) {
+
+            januar += statistikService.checkMonth("01", auftrag.getCreated());
+            februar += statistikService.checkMonth("02", auftrag.getCreated());
+            maerz += statistikService.checkMonth("03", auftrag.getCreated());
+            april += statistikService.checkMonth("04", auftrag.getCreated());
+            mai += statistikService.checkMonth("05", auftrag.getCreated());
+            juni += statistikService.checkMonth("06", auftrag.getCreated());
+            juli += statistikService.checkMonth("07", auftrag.getCreated());
+            august += statistikService.checkMonth("08", auftrag.getCreated());
+            september += statistikService.checkMonth("09", auftrag.getCreated());
+            oktober += statistikService.checkMonth("10", auftrag.getCreated());
+            november += statistikService.checkMonth("11", auftrag.getCreated());
+            dezember += statistikService.checkMonth("12", auftrag.getCreated());
+
+
+        }
+
+        model.addAttribute("januar", januar);
+        model.addAttribute("februar", februar);
+        model.addAttribute("maerz", maerz);
+        model.addAttribute("april", april);
+        model.addAttribute("mai", mai);
+        model.addAttribute("juni", juni);
+        model.addAttribute("juli", juli);
+        model.addAttribute("august", august);
+        model.addAttribute("september", september);
+        model.addAttribute("oktober", oktober);
+        model.addAttribute("november", november);
+        model.addAttribute("dezember", dezember);
+
+        System.out.println(angebotService.loadAllAngebote().size());
+        System.out.println(angebotService.loadAlleOffenenAngebote().size());
+        System.out.println(auftragList.size());
+        model.addAttribute("angebotsanfragen", angebotService.loadAllAngebote().size());
+        model.addAttribute("offeneangebote", angebotService.loadAlleOffenenAngebote().size());
+        model.addAttribute("auftraege", auftragList.size());
+        model.addAttribute("privatkunden", (userService.userCounter() - 1));
+
+
+        return "statistik";
 
     }
 
