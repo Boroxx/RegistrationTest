@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.security.Principal;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -36,7 +37,10 @@ public class UserService {
         user.setPhonenumber(userDto.getPhonenumber());
         user.setStrasse_hausnummer(userDto.getStrasse_hausnummer());
         user.setStadt_plz(userDto.getStadt_plz());
-        user.setRole("ROLE_USER");
+        user.setUnternehmen(userDto.getUnternehmen());
+        if(userDto.getUnternehmen()!=null)user.setRole("ROLE_UNTERNEHMEN");
+        else user.setRole("ROLE_USER");
+
         user.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
 
 
@@ -78,5 +82,16 @@ public class UserService {
         String role = userRepository.findByEmail((principal.getName())).getRole();
         return role.equals("ROLE_ADMIN");
 
+    }
+
+    public boolean isUserUnternehmen(Principal principal) {
+        String role = userRepository.findByEmail((principal.getName())).getRole();
+        return role.equals("ROLE_UNTERNEHMEN");
+
+    }
+
+    public List<User> getUnternehmerList(){
+        List<User> user = userRepository.findByRole("ROLE_UNTERNEHMEN");
+        return user;
     }
 }

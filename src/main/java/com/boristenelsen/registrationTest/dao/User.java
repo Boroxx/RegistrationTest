@@ -31,6 +31,7 @@ public class User {
 
     private String stadt_plz;
     private String strasse_hausnummer;
+    private String unternehmen;
 
     private String role;
 

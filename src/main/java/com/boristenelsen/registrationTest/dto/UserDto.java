@@ -36,6 +36,8 @@ public class UserDto {
     @NotEmpty
     private String stadt_plz;
 
+    private String unternehmen;
+
 
     private String role;
 }

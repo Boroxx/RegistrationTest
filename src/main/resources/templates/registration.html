@@ -33,6 +33,7 @@
 
                 <h4 class="blaueSchrift">Benutzer-Information</h4>
 
+
                 <div class="form-group">
                     <label for="vornameId">Vorname:</label>
                     <input class="form-control" id="vornameId" th:field="*{vorname}">
@@ -100,11 +101,29 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="stadt_plzId">Strasse und Plz:</label>
+                    <label for="stadt_plzId">Stadt und Plz:</label>
                     <input class="form-control" id="stadt_plzId" th:field="*{stadt_plz}">
                     <small class="form-text text-muted" id="stadt_plzIdHelp">Geben Sie hier ihre Stadt und ihre
                         Postleitzahl an</small>
                     <div class="alert alert-primary" role="alert" th:if="${#fields.hasErrors('stadt_plz')}">
+                        Eingabe nicht valide
+                    </div>
+
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="unternehmenCheck"  type="checkbox"
+                           value="yes">
+                    <label class="form-check-label" for="unternehmenCheck">
+                        Sind Sie ein Unternehmen?
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="unternehmen"></label>
+                    <input class="form-control" id="unternehmen" th:field="*{unternehmen}" disabled>
+                    <small class="form-text text-muted" id="unternehmenIdHelp">Geben Sie hier den Namen ihres Unternehmens ein.</small>
+                    <div class="alert alert-primary" role="alert" th:if="${#fields.hasErrors('unternehmen')}">
                         Eingabe nicht valide
                     </div>
 
@@ -127,6 +146,10 @@
 <script>
     var telefon = document.getElementById('phonenumberId');
     telefon.value = '';
+
+    document.getElementById('unternehmenCheck').onchange = function() {
+        document.getElementById('unternehmen').disabled = !this.checked;
+    };
 </script>
 <script crossorigin="anonymous"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

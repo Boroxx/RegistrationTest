@@ -24,13 +24,24 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-        <div class="container-fluid">
-            <h1 class="mt-4">Wilkommen, Admin!</h1>
-            <h5>Hier hast du eine Übersicht aller Angebotsaufforderungen der Nutzer</h5>
+        <div class="container shadow p-3 mt-4 mb-5  rounded ">
+            <h1 style="color: dodgerblue"class="mt-4"><i class="fas fa-id-card-alt"></i> Angebotsanfragen</h1>
+            <hr>
+            <ul>
+                <li> <p>Hier werden alle Angebotsanfragen,die von einem Kunden erstellt werden angezeigt. </p></li>
+                <li><p>Diese Seite dient zur Übersicht sowie zur Angebots erstellung</p></li>
+                <li><p>Wenn die Aktion "Angebot erstellen" ausgeführt wird, sammelt ein Algorithmus die verschiedenen Informationen zum Bauvorhaben
+                    und gleicht diese mit den verschiedenen Positionen ab, welche sich unter dem Menüunterpunkt Leistungsverzeichnis befinden.
+                </p></li>
+                <li><p>Die Preise die im Leistungsverzeichnis gespeichert wurden, werden zwar übernommen aber können während der Erstellung des Angebots geändert werden</p></li>
+            </ul>
         </div>
 
-        <table class="table">
-            <thead>
+        <div class="container baumodule">
+
+
+        <table class="table shadow p-3 mb-5  rounded" >
+            <thead class="tablesBlue">
             <tr>
                 <th scope="col">Status</th>
                 <th scope="col">Name</th>
@@ -56,14 +67,15 @@
                 <td th:text="${bestellung.email}"></td>
                 <td th:text="${bestellung.telefon}"></td>
                 <td th:text="${bestellung.gehwegm2}"></td>
-                <td><a class="btn btn-primary" th:href="'/admin/createAngebot/'+${bestellung.id}">Angebot erstellen</a>
+                <td><a  th:href="'/admin/createAngebot/'+${bestellung.id}"><button class="btn btn-dark" th:disabled="${bestellung.status}">Angebot erstellen</button></a>
                 </td>
-                <td><a th:href="@{'/admin/vergabe/' + ${bestellung.id}}"><i class="fas fa-check"></i></a></td>
+                <td><a style="color:orange" th:href="@{'/admin/vergabe/' + ${bestellung.id}}"><i class="fas fa-check"></i></a></td>
                 <td><a th:href="@{'/home/dashboard/' + ${bestellung.id}}"><span style="color:dodgerblue"><i
                         class="fas fa-info-circle fa-2x"></i></span></a></td>
             </tr>
             </tbody>
         </table>
+        </div>
     </div>
     <!-- /#page-content-wrapper -->
 

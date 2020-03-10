@@ -30,16 +30,16 @@ public class SecConfigWeb extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/resources/**").hasAnyRole("ANONYMOUS,USER", "ADMIN")
-                .antMatchers("/login").hasAnyRole("ANONYMOUS", "USER", "ADMIN")
-                .antMatchers("/registration").hasAnyRole("ANONYMOUS", "USER", "ADMIN")
-                .antMatchers("/home").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/home/").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/resources/**").hasAnyRole("ANONYMOUS","USER","UNTERNEHMEN", "ADMIN")
+                .antMatchers("/login").hasAnyRole("ANONYMOUS", "UNTERNEHMEN", "USER", "ADMIN")
+                .antMatchers("/registration").hasAnyRole("ANONYMOUS","UNTERNEHMEN",  "USER", "ADMIN")
+                .antMatchers("/home").hasAnyRole("USER","UNTERNEHMEN",  "ADMIN")
+                .antMatchers("/home/").hasAnyRole("USER","UNTERNEHMEN",  "ADMIN")
                 .antMatchers("/home/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/admin/").hasAnyRole("ADMIN")
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
-                .and().formLogin().loginPage("/login").defaultSuccessUrl("/home");
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/rolehome");
 
         /*Logs out and clears the security Context*/
         http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

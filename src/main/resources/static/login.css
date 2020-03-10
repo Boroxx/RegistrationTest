@@ -27,7 +27,14 @@ html, body {
 body {
     overflow-x: hidden;
 }
+.tablesBlue{
+   background-color: dodgerblue;
+    color:white;
+}
 
+#gehwegliste li{
+    margin: 0 0 10px 0;
+}
 #sidebar-wrapper {
     min-height: 150vh;
     margin-left: -15rem;

@@ -25,13 +25,23 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-        <div class="container-fluid">
-            <h1 class="mt-4">Wilkommen, Admin!</h1>
-            <h5>Hier hast du eine Übersicht aller Aktiven Aufträge </h5>
+        <div class="container shadow p-3 mt-4 mb-5  ">
+            <h1 style="color: dodgerblue"class="mt-4"><i class="fas fa-bullseye"></i> Aktive Aufträge</h1>
+            <hr>
+            <ul>
+                <li> <p>Aktive Aufträge sind Angebote,die von Unseren Kunden akzeptiert worden sind. Aktive Aufträge können desweiteren an Unsere Nachunternehmer verteilt werden.</li>
+                <li><p>Wird ein Auftrag einem Nachunternehmer vergeben, so kommt dieser in die Phase "Vergebener Auftrag".</p></li>
+                <li><p>Ein Vergebener Auftrag wird dann vom Nachunternehmer bearbeitet</p></li>
+                <li><p>Ist dieser Auftrag fertiggestellt so wird der Auftrag zu einem abgeschlossenen Auftrag.</p></li>
+            </ul>
+
+
+
         </div>
 
-        <table class="table">
-            <thead>
+        <div class="container baumodule">
+        <table class="table shadow p-3 mb-5  rounded" >
+            <thead class="tablesBlue">
             <tr>
                 <th scope="col">Annahme am</th>
                 <th scope="col">Name</th>
@@ -60,6 +70,7 @@
             </tr>
             </tbody>
         </table>
+            </div>
     </div>
     <!-- /#page-content-wrapper -->
 

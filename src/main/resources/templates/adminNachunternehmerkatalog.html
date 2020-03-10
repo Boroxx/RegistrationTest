@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title>Aufträge</title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="/login.css" rel="stylesheet" type="text/css"/>
+    <link href="/all.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+
+<div th:replace="fragmentheader :: header">...</div>
+
+
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div th:replace="fragmentsidebar :: adminSidebar">...</div>
+
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+        <div class="container shadow p-3 mb-5  rounded ">
+            <h1 class="mt-4">Wilkommen, Admin!</h1>
+            <h5>Hier hast du eine Übersicht aller Aktiven Aufträge </h5>
+        </div>
+
+        <div class="container baumodule">
+
+
+            <table class="table shadow p-3 mb-5  rounded">
+                <thead class="tablesBlue">
+                <tr>
+                    <th scope="col">Unternehmen</th>
+                    <th scope="col">Zuständig</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefon</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="unternehmer : ${unternehmenList}">
+
+                    <td th:text="${unternehmer.unternehmen}"></td>
+                    <td th:text="${unternehmer.vorname + ' ' + unternehmer.nachname}"></td>
+                    <td th:text="${unternehmer.email}"></td>
+                    <td th:text="${unternehmer.phonenumber}"></td>
+
+
+
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+
+</body>
+</html>
+
+

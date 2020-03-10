@@ -40,8 +40,11 @@
                 <hr>
                 <br> <br>
 
-                <p class="lead">Da Sie schon ein Konto bei Portly erstellt haben, benötigen wir lediglich ein paar
-                    Informationen zum Bauvorhaben: </p>
+                <p class="lead">Hier brauchen wir von Ihnen einige Informationen zu Ihrem Bauvorhaben. <br>
+                    Dies erleichtert uns Ihnen ein Angebot zu unterbreiten und verschnellert den Prozess der Angebotserstellung sehr.
+
+
+                </p>
 
                 <form action="/home/gehwegabsenkung3" enctype="multipart/form-data" method="post"
                       th:object="${gehwegInformationDto}">
@@ -52,6 +55,7 @@
                             <div class="form-check">
                                 <input class="custom-file-input" id="genehmigung" name="genehmigung" type="file">
                                 <label class="custom-file-label" for="genehmigung" id="genehmigunglabel"></label>
+                                <div th:if="${#fields.hasErrors('genehmigung')}">Bitte laden Sie eine Datei hoch!</div>
 
                             </div>
                         </div>

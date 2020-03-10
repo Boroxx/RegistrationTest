@@ -117,6 +117,11 @@ public class AdminDashboardController {
 
     }
 
+   @GetMapping("/admin/nachunternehmerkatalog")
+   public String nachunternehmerkatalog(Model model){
+        model.addAttribute("unternehmenList",userService.getUnternehmerList());
+        return"adminNachunternehmerkatalog";
+   }
     @GetMapping("/admin/statistik")
     public String statistiken(Model model) {
 
