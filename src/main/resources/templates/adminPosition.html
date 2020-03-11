@@ -26,50 +26,48 @@
 
 
         <div class="container shadow p-3 mb-5  rounded ">
-                <h1 class="mt-4">Wilkommen, Admin!</h1>
+            <h1 class="mt-4">Wilkommen, Admin!</h1>
 
-                <h5>Hier können Sie das Leistungsverzeichnis zur Gehwegabsenkung bearbeiten. <a class="btn btn-danger"
-                                                                                                href="/admin/positionenEdit">bearbeiten</a>
-                </h5>
-
-            </div>
-
-
-            <div class="container baumodule">
-
-
-
-                <table class="table shadow p-3 mb-5  rounded" >
-                    <thead class="tablesBlue">
-                    <tr>
-                        <th scope="col">Ordnungsnummer</th>
-                        <th scope="col">Kurztext</th>
-                        <th scope="col">Menge</th>
-                        <th scope="col">Einheit</th>
-                        <th scope="col">Preis</th>
-
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                    <tr th:each="position : ${positionen}">
-                        <td><span th:text="${position.ordnungsnummer}"></span></td>
-                        <td th:text="${position.kurztext}"></td>
-                        <td th:text="${position.menge}"></td>
-                        <td th:text="${position.einheit}">Euro</td>
-                        <td th:text="${position.preis}"></td>
-
-                    </tr>
-                    </tbody>
-                </table>
-
-            </div>
+            <h5>Hier können Sie das Leistungsverzeichnis zur Gehwegabsenkung bearbeiten. <a class="btn btn-danger"
+                                                                                            href="/admin/positionenEdit">bearbeiten</a>
+            </h5>
 
         </div>
-    </div>
-    <!-- /#page-content-wrapper -->
 
+
+        <div class="container baumodule">
+
+
+            <table class="table shadow p-3 mb-5  rounded">
+                <thead class="tablesBlue">
+                <tr>
+                    <th scope="col">Ordnungsnummer</th>
+                    <th scope="col">Kurztext</th>
+                    <th scope="col">Menge</th>
+                    <th scope="col">Einheit</th>
+                    <th scope="col">Preis</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr th:each="position : ${positionen}">
+                    <td><span th:text="${position.ordnungsnummer}"></span></td>
+                    <td th:text="${position.kurztext}"></td>
+                    <td th:text="${position.menge}"></td>
+                    <td th:text="${position.einheit}">Euro</td>
+                    <td ><span th:text="${#numbers.formatDecimal(position.preis, 0, 'COMMA', 2, 'POINT')}"></span>&euro;</td>
+
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+<!-- /#page-content-wrapper -->
 
 
 </body>

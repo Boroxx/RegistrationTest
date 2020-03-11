@@ -32,147 +32,148 @@
 
         <div class="container baumodule uebersicht ">
 
-                <div class="row">
-                    <div class="col-sm-12" th:object="${clientbestellung}">
+            <div class="row">
+                <div class="col-sm-12" th:object="${clientbestellung}">
 
-                        <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
 
-                            <div class="card-body">
+                        <div class="card-body">
                                 <span style="float:right"><img alt="portly"
                                                                src="/portly_transparent_300x120.png"></span>
 
 
-                                <h4 class="card-title">
+                            <h4 class="card-title">
 
 
                                     <span class="blaueSchrift"> Bauvorhaben: <span
                                             th:text="*{strasse_hausnummer}"></span> </span>
 
-                                    (
-                                    <span style="color: #ffa41b;" th:unless="${clientbestellung.status}">
+                                (
+                                <span style="color: #ffa41b;" th:unless="${clientbestellung.status}">
                                               In Bearbeitung
                                         </span>
-                                    <span style="color: limegreen;" th:if="${clientbestellung.status}">
+                                <span style="color: limegreen;" th:if="${clientbestellung.status}">
                                               Angebot
                                         </span>
-                                    )
+                                )
 
 
-                                </h4>
+                            </h4>
+                            <br>
+
+
+                            <h5><span class="blaueSchrift"><i class="fas fa-lock "></i></span> Angebot
+                            </h5>
+                            <hr>
+                            <br>
+                            <p><b>Sehr geehrte Frau/Herr <span th:text="*{name}"></span></b>, <br>
+                                Wir freuen uns Ihnen
+                                ein Angebot unterbreiten zu können. <br>
+
+                            </p>
+
+
+                            <p style="font-size: 16px;"><b>Für dieses Bauvorhaben wurde eine Summe von:
+
+                                <span style=" font-size: 20px;color:limegreen"><u><span
+                                        th:text="${#numbers.formatDecimal(angebot.gesamtPreis, 0, 'COMMA', 2, 'POINT')}
+                                          "></span> Euro</u></span>
+
+                                pauschal für Sie errechnet.</b></p>
+                            <p>
                                 <br>
+                                An unser Angebot halten wir uns 3 Monate gebunden. Für Aufmass und Abrechnung gelten
+                                Teil B und Teil C der VOB in <br>
+                                der neuesten Fassung. Das Zahlungsziel ist sofort nach Rechnungserhalt.<br>
+                                Falls Sie das Angebot bestätigen, werden wir Uns schnellstmöglich um ihr Bauvorhaben
+                                kümmern.
+                            </p>
 
-
-                                <h5><span class="blaueSchrift"><i class="fas fa-lock "></i></span> Angebot
-                                </h5>
-                                <hr>
-                                <br>
-                                <p><b>Sehr geehrte Frau/Herr <span th:text="*{name}"></span></b>, <br>
-                                    Wir freuen uns Ihnen
-                                    ein Angebot unterbreiten zu können. <br>
-
-                                </p>
-
-
-                                <p style="font-size: 16px;"><b>Für dieses Bauvorhaben wurde eine Summe von:
-
-                                    <span style=" font-size: 20px;color:limegreen"><u><span
-                                            th:text="${angebot.gesamtPreis}"></span> Euro</u></span>
-
-                                    pauschal für Sie errechnet.</b></p>
-                                <p>
-                                    <br>
-                                    An unser Angebot halten wir uns 3 Monate gebunden. Für Aufmass und Abrechnung gelten
-                                    Teil B und Teil C der VOB in <br>
-                                    der neuesten Fassung. Das Zahlungsziel ist sofort nach Rechnungserhalt.<br>
-                                    Falls Sie das Angebot bestätigen, werden wir Uns schnellstmöglich um ihr Bauvorhaben
-                                    kümmern.
-                                </p>
-
-                                <div class="d-flex justify-content-center">
+                            <div class="d-flex justify-content-center">
                                     <span>
                                          <p><a class="btn btn-success"
                                                th:href="'/home/createAuftrag/' + ${angebot.angebotId}" th:size="20"> Annehmen</a></p>
                                     </span>
 
+                            </div>
+
+                            <br>
+
+                            <h5><span class="blaueSchrift"><i class="fas fa-drafting-compass"></i></span>
+                                Bauspezfische Informationen</h5>
+                            <hr>
+                            <p><b>Gehweg gesamt:</b> <span th:text="*{gehwegm2}"></span> m2</p>
+
+                            <hr>
+                            <p><b>Vorgarten:</b> <span th:text="*{vorgarten}"></span></p>
+                            <hr>
+                            <p><b>Hinderniss/e:</b> <span th:text="*{hindernis}"></span></p>
+                            <hr>
+                            <p><b>Anmerkungen zum Bauvorhaben:</b> <span th:text="*{anmerkung}"></span></p>
+                            <hr>
+                            <p><b>Gehwegbreite:</b> <span th:text="*{gehwegbreite}"></span> cm </p>
+                            <p><b>Gehweglaenge:</b> 700 cm </p>
+                            <hr>
+                            <p><b>Plattenlaenge:</b> <span th:text="*{plattenlaenge}"></span> cm </p>
+                            <p><b>Plattenbreite:</b> <span th:text="*{plattenbreite}"></span> cm </p>
+                            <hr>
+
+
+                            <h5><span class="blaueSchrift"><i class="fas fa-download"></i></span> Downloads</h5>
+                            <hr>
+                            <p><a th:href="*{genehmigung}">Genehmigung</a></p>
+                            <br>
+
+                            <hr>
+
+                            <h5><span class="blaueSchrift"><i class="fas fa-images"></i></span> Gehwegbilder:</h5>
+
+
+                            <div class="row">
+                                <div class="col-sm-4" th:each="gehwegbilder : *{gehwegBilderListe}">
+                                    <img alt="gehweg" class="myImg" th:height="200" th:src="${gehwegbilder}"
+                                         th:width="200">
                                 </div>
+                            </div>
 
-                                <br>
+                            <br>
+                            <hr>
 
-                                <h5><span class="blaueSchrift"><i class="fas fa-drafting-compass"></i></span>
-                                    Bauspezfische Informationen</h5>
-                                <hr>
-                                <p><b>Gehweg gesamt:</b> <span th:text="*{gehwegm2}"></span> m2</p>
+                            <a class="btn btn-info"
+                               th:href="'/home/dashboard/angebot/downloadAngebot/'+ ${angebot.bestellungId}">PDF
+                                download</a>
 
-                                <hr>
-                                <p><b>Vorgarten:</b> <span th:text="*{vorgarten}"></span></p>
-                                <hr>
-                                <p><b>Hinderniss/e:</b> <span th:text="*{hindernis}"></span></p>
-                                <hr>
-                                <p><b>Anmerkungen zum Bauvorhaben:</b> <span th:text="*{anmerkung}"></span></p>
-                                <hr>
-                                <p><b>Gehwegbreite:</b> <span th:text="*{gehwegbreite}"></span> cm </p>
-                                <p><b>Gehweglaenge:</b> 700 cm </p>
-                                <hr>
-                                <p><b>Plattenlaenge:</b> <span th:text="*{plattenlaenge}"></span> cm </p>
-                                <p><b>Plattenbreite:</b> <span th:text="*{plattenbreite}"></span> cm </p>
-                                <hr>
-
-
-                                <h5><span class="blaueSchrift"><i class="fas fa-download"></i></span> Downloads</h5>
-                                <hr>
-                                <p><a th:href="*{genehmigung}">Genehmigung</a></p>
-                                <br>
-
-                                <hr>
-
-                                <h5><span class="blaueSchrift"><i class="fas fa-images"></i></span> Gehwegbilder:</h5>
-
-
-                                <div class="row">
-                                    <div class="col-sm-4" th:each="gehwegbilder : *{gehwegBilderListe}">
-                                        <img alt="gehweg" class="myImg" th:height="200" th:src="${gehwegbilder}"
-                                             th:width="200">
-                                    </div>
-                                </div>
-
-                                <br>
-                                <hr>
-
-                                <a class="btn btn-info"
-                                   th:href="'/home/dashboard/angebot/downloadAngebot/'+ ${angebot.bestellungId}">PDF
-                                    download</a>
-
-                                <div class="d-flex">
+                            <div class="d-flex">
                             <span class="ml-auto">
                             <a class="btn btn-primary" href="/home/dashboard">Zurück zur Übersicht</a>
                              </span>
 
-                                </div>
-
-
                             </div>
+
+
                         </div>
                     </div>
-
-
                 </div>
+
+
             </div>
-
-
         </div>
+
+
     </div>
+</div>
 
-    <div class="modal" id="myModal">
+<div class="modal" id="myModal">
 
-        <!-- The Close Button -->
-        <span class="close">&times;</span>
+    <!-- The Close Button -->
+    <span class="close">&times;</span>
 
-        <!-- Modal Content (The Image) -->
-        <img class="modal-content" id="img01">
+    <!-- Modal Content (The Image) -->
+    <img class="modal-content" id="img01">
 
-        <!-- Modal Caption (Image Text) -->
-        <div id="caption"></div>
-    </div>
+    <!-- Modal Caption (Image Text) -->
+    <div id="caption"></div>
+</div>
 
 </div>
 <!-- /#page-content-wrapper -->

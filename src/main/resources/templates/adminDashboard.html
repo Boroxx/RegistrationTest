@@ -66,7 +66,7 @@
                 <td th:text="${bestellung.name}">Euro</td>
                 <td th:text="${bestellung.email}"></td>
                 <td th:text="${bestellung.telefon}"></td>
-                <td th:text="${bestellung.gehwegm2}"></td>
+                <td><span th:text="${bestellung.gehwegm2}"></span> m2</td>
                 <td><a  th:href="'/admin/createAngebot/'+${bestellung.id}"><button class="btn btn-dark" th:disabled="${bestellung.status}">Angebot erstellen</button></a>
                 </td>
                 <td><a style="color:orange" th:href="@{'/admin/vergabe/' + ${bestellung.id}}"><i class="fas fa-check"></i></a></td>
