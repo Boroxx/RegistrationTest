@@ -14,36 +14,24 @@
     <title>Gehwegabsenkung</title>
 
 </head>
-<body>
+<body class="homehintergrund">
 
 <div th:replace="fragmentheader :: header">...</div>
 
 
 
-<div class="d-flex" id="wrapper">
-    <!-- Sidebar -->
-    <div th:replace="fragmentsidebar :: sidebar">...</div>
+            <div class="container" style="margin-top:10%;color:white">
 
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-
-        <div class="jumbotron jumbotron-fluid" style="background-color: #FFFFFF!important;">
-            <div class="container">
-
-
-                <h1 class="display-4" style="color: dodgerblue">
-                <span style="color: dodgerblue;">
-                    <i class="fas fa-truck-pickup"></i>
-                 </span>
-                    Persönliche Daten
+                <h1 class="display-4" style="color: white">
+                    Ihr Persönliches Bauvorhaben.
                 </h1>
                 <hr>
                 <br> <br>
 
                 <p class="lead">Wo sollen wir ihr Bauvorhaben durchführen?</p>
 
-                <form action="/home/gehwegabsenkung2" method="post" th:object="${bauvorhabenAdresseDto}">
+                <form  action="/home/gehwegabsenkung2" method="post" th:object="${bauvorhabenAdresseDto}">
 
                     <div class="form-group row">
                         <div class="col-sm-4"><b>Straße, Hausnummer:</b></div>
@@ -73,7 +61,7 @@
                     <br>
                     <div class="form-group row">
                         <div class="col-sm-4"></div>
-                        <div class="col-sm-8"><input class="btn btn-primary" onclick="activateLink()" type="submit"
+                        <div class="col-sm-8"><input class="btn btn-light" onclick="activateLink()" type="submit"
                                                      value="Fertig">
                         </div>
 
@@ -90,15 +78,11 @@
 
                 </form>
 
-                <br> <br>
-                <div class="progress" style="height: 1px;">
-                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" class="progress-bar"
-                         role="progressbar" style="width: 100%;"></div>
-                </div>
+                <br>
 
                 <div class="d-flex">
-                    <span style="color: dodgerblue;">
-                        <a href="/home/gehwegabsenkung"><i class="fas fa-arrow-left fa-3x"></i></a>
+                    <span>
+                        <a style="color: white" href="/home/gehwegabsenkung"><i class="fas fa-arrow-left fa-3x"></i></a>
 
                     </span>
 
@@ -106,18 +90,12 @@
 
 
             </div>
-
-
-        </div>
-
-    </div>
-    <!-- /#page-content-wrapper -->
+<div style="height:40%">
 
 </div>
 
-<footer>
+<div th:replace="fragmentfooter :: footer">...</div>
 
-</footer>
 
 
 <script crossorigin="anonymous"
