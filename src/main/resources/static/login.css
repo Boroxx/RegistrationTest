@@ -164,6 +164,10 @@ input[name="hiddeninput"] {
         background-position: 0% 50%;
     }
 }
+.card:hover {
+    background-color: rgba(32, 139, 255, 0.06);
+    box-shadow: 8px 12px 31px -10px #ab98ab;
+}
 
 a.disabled {
     pointer-events: none;
@@ -171,6 +175,29 @@ a.disabled {
 }
 
 nav > a {
-
     color: white;
+}
+
+.navbar-custom {
+    background-color: black;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: white;
+}
+.angebotmodule{
+    margin-top:15%;
+    margin-bottom:15%;
+}
+
+.eyecatcher {
+    color:white;
+}
+
+.homehintergrund{
+    background-image: url("/background_portly_1920x1080.png");
+    background-repeat: no-repeat;
+    top:0;
+    background-size: cover;
 }

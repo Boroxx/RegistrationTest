@@ -26,6 +26,7 @@ public class GehwegInformation {
     private String username;
     private String anmerkung;
     private int gehwegbreite;
+    private int gehweglaenge;
     private int plattenlaenge;
     private int plattenbreite;
     private boolean status;

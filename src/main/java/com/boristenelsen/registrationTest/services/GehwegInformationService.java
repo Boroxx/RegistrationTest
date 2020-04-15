@@ -62,6 +62,7 @@ public class GehwegInformationService {
         gehwegInformation.setGehwegbreite(gehwegInformationDto.getGehwegbreite());
         gehwegInformation.setPlattenlaenge(gehwegInformationDto.getPlattenlaenge());
         gehwegInformation.setPlattenbreite(gehwegInformationDto.getPlattenbreite());
+        gehwegInformation.setGehweglaenge(gehwegInformationDto.getGehweglaenge());
         gehwegInformation.setStatus(false);
 
 
@@ -102,6 +103,7 @@ public class GehwegInformationService {
     /*Stellt ClientBestellung zusammen*/
     public ClientBestellung loadClientBestellungByID(int id) {
 
+        System.out.println(id);
         ClientBestellung clientBestellung = new ClientBestellung();
         GehwegInformation gehwegInformation = gehwegInformationRepsoitory.findByID(id);
 
@@ -114,8 +116,8 @@ public class GehwegInformationService {
                 .setTelefon(user.getPhonenumber())
                 .setId(gehwegInformation.getID())
                 .setGenehmigung(gehwegInformation.getGenehmigungDownload())
-                .setPreis(preis(gehwegInformation.getGehwegbreite() * 700))
-                .setGehwegm2(convertCmIntoM2(gehwegInformation.getGehwegbreite() * 700))
+                .setPreis(preis(gehwegInformation.getGehwegbreite() * gehwegInformation.getGehweglaenge()))
+                .setGehwegm2(convertCmIntoM2(gehwegInformation.getGehwegbreite() * gehwegInformation.getGehweglaenge()))
                 .setEmail(gehwegInformation.getUsername())
                 .setStadt_plz(bauvorhabenAdresse.getStadt_plz())
                 .setStatus(gehwegInformation.isStatus())
@@ -124,8 +126,10 @@ public class GehwegInformationService {
                 .setHindernis(gehwegInformation.getHindernis())
                 .setGehwegBilderListe(imagelinks)
                 .setGehwegbreite(gehwegInformation.getGehwegbreite())
+                .setGehweglaenge(gehwegInformation.getGehweglaenge())
                 .setPlattenbreite(gehwegInformation.getPlattenbreite())
                 .setPlattenlaenge(gehwegInformation.getPlattenlaenge());
+
 
         String anmerkung;
         if (gehwegInformation.getAnmerkung() == null) {
@@ -197,5 +201,10 @@ public class GehwegInformationService {
         gehwegInformationRepsoitory.save(gehwegInformation);
         return 1;
 
+    }
+
+    public void delete(int gehwegid,int bauid) {
+        gehwegInformationRepsoitory.deleteByID(gehwegid);
+        bauvorhabenAdresseRepository.deleteByID(bauid);
     }
 }

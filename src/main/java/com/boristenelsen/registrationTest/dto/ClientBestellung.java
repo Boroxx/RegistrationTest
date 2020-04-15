@@ -33,6 +33,7 @@ public class ClientBestellung {
     private int gehwegbreite;
     private int plattenlaenge;
     private int plattenbreite;
+    private int gehweglaenge;
     private String genehmigung;
     private String genehmigungsID;
     private List<String> gehwegBilderListe;

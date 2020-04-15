@@ -114,7 +114,7 @@ public class AngebotService {
             }
             if (pos.getOrdnungsnummer().equals("0000008")) {
                 pos.setChoosen(true);
-                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double quadratmeter = (bestellung.getGehwegbreite() * bestellung.getGehweglaenge()) / 10000.0;
                 double gesamt = quadratmeter * 0.7 * 0.67;
                 pos.setMenge(gesamt);
 
@@ -122,7 +122,7 @@ public class AngebotService {
             }
             if (pos.getOrdnungsnummer().equals("0000009")) {
                 pos.setChoosen(true);
-                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double quadratmeter = (bestellung.getGehwegbreite() * bestellung.getGehweglaenge()) / 10000.0;
                 double gesamt = quadratmeter * 0.7 * 0.33;
                 pos.setMenge(gesamt);
 
@@ -141,7 +141,7 @@ public class AngebotService {
             }
             if (pos.getOrdnungsnummer().equals("0000012")) {
                 pos.setChoosen(true);
-                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double quadratmeter = (bestellung.getGehwegbreite() * bestellung.getGehweglaenge()) / 10000.0;
                 double gesamt = quadratmeter * 0.2;
 
                 pos.setMenge(gesamt);
@@ -162,7 +162,7 @@ public class AngebotService {
             }
             if (pos.getOrdnungsnummer().equals("0000022")) {
                 pos.setChoosen(true);
-                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double quadratmeter = (bestellung.getGehwegbreite() * bestellung.getGehweglaenge()) / 10000.0;
                 double gesamt = quadratmeter * 0.2;
 
 
@@ -176,7 +176,7 @@ public class AngebotService {
             }
             if (pos.getOrdnungsnummer().equals("0000027")) {
                 pos.setChoosen(true);
-                double quadratmeter = (bestellung.getGehwegbreite() * 700) / 10000.0;
+                double quadratmeter = (bestellung.getGehwegbreite() * bestellung.getGehweglaenge()) / 10000.0;
                 double gesamt = quadratmeter * 0.05;
 
                 pos.setMenge(gesamt);

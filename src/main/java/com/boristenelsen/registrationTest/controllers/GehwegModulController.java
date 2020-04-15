@@ -13,11 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.context.annotation.SessionScope;
 
 import javax.validation.Valid;
 
 @Controller
+@SessionScope
 public class GehwegModulController {
 
     @Autowired
@@ -64,6 +67,12 @@ public class GehwegModulController {
         GehwegInformation gehwegInformation = new GehwegInformation();
         gehwegInformationDto.setUsername(getEmail());
         gehwegInformation = createGehwegInformation(gehwegInformationDto, bindingResult);
+        return "redirect:/home/dashboard";
+    }
+
+    @GetMapping("/home/modulLoeschen/{gehwegid}/{bauid}")
+    public String loescheModul(@PathVariable int gehwegid,@PathVariable int bauid){
+        gehwegInformationService.delete(gehwegid,bauid);
         return "redirect:/home/dashboard";
     }
 

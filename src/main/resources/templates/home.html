@@ -12,86 +12,122 @@
     <link href="/login.css" rel="stylesheet" type="text/css"/>
     <link href="/all.css" rel="stylesheet" type="text/css"/>
     <title>Portly Startseite</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
 
 </head>
-<body>
+<body class="homehintergrund">
 
 <div th:replace="fragmentheader :: header">...</div>
 
 
-<div class="d-flex justify-content-center" style="padding-top:10%;padding-bottom:100%">
-
-    <div class="container">
+    <div class="container eyecatcher" style="margin-top:15%;">
         <h1 class="display-4">Eine Plattform die jedem Nutzer das Leben erleichtert.</h1>
-        <p class="lead">Sie wissen nicht wieviel ihr Bauvorhaben kostet und Sie haben keine Ahnung an wen Sie sich
+        <p style="margin-top: 5%" class="lead">Sie wissen nicht wieviel ihr <b>Bauvorhaben kostet</b> und Sie haben keine Ahnung an wen Sie
+            sich
             wenden sollen? <br>
             Kein Problem Portly ist genau dafür konzipiert worden. <br>
+            Hier können <b>Sie selbstständig</b> nach unserem Leitfaden <b>ein Angebot für ihr Bauvorhaben</b>
+            erstellen.<br>
             Wir von Portly kümmern uns direkt online um ihr Bauvorhaben und liefern Ihnen so schnell wie möglich
-            ein Online-Angebot. <br></p>
+            ein unverbindliches Online-Angebot.<br>
+        </p>
+        <br>
+    </div>
 
+    <div class="container angebotmodule">
 
-        <div class="row">
-            <div class="col-sm">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">
+        <section>
+            <h3 class="module" style="font-size: 2.0rem;font-weight: 300; line-height: 1.2;">Folgende Module bietet Portly ihnen unverbindlich an: </h3>
+            <br>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
 
                                           <span style="color: dodgerblue;">
                                               <i class="fas fa-home icon-2x"></i>
                                           </span>
-                            Bodenplatte
+                                Bodenplatte
 
-                        </h5>
-                        <p class="card-text">Sie brauchen eine Bodenplatte für ihr Haus und wissen nicht an welches
-                            Unternehmen Sie sich wenden sollen?</p>
-                        <a class="btn btn-primary" href="">Angebotanfragen</a>
+                            </h5>
+                            <p class="card-text">Sie brauchen eine Bodenplatte für ihr Haus und wissen nicht an welches
+                                Unternehmen Sie sich wenden sollen?</p>
+                            <div class="text-center">
+                                <br>
+                                <br>
+                                <a class="btn btn-primary" href="">Hier mehr erfahren!</a>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">
+                <div class="col-sm">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
                                          <span style="color: dodgerblue;">
                                             <i class="fas fa-truck-pickup"></i>
                                          </span>
-                            Gehwegabsenkung
-                        </h5>
-                        <p class="card-text">Sie brauchen eine Gehwegabsenkung vor ihrem Haus und wissen nicht an
-                            welches
-                            Unternehmen Sie sich wenden sollen?</p>
-                        <a class="btn btn-primary" href="/home/gehwegabsenkung">Angebot anfragen</a>
+                                Gehwegabsenkung
+                            </h5>
+                            <p class="card-text">Sie brauchen eine Gehwegabsenkung vor ihrem Haus und wissen nicht an
+                                welches
+                                Unternehmen Sie sich wenden sollen?</p>
+                            <div class="text-center">
+                                <br>
+                                <br>
+                                <a class="btn btn-primary" href="/home/gehwegabsenkung">Hier mehr erfahren!</a>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
                                         <span style="color: dodgerblue;">
                                             <i class="fas fa-water"></i>
                                           </span>
-                            Kanal
-                        </h5>
-                        <p class="card-text">Sie brauchen einen Kanal für ihr Haus und wissen nicht an welches
-                            Unternehmen
-                            Sie sich wenden sollen?</p>
-                        <button class="btn btn-primary" disabled>Angebot anfragen</button>
+                                Kanal
+                            </h5>
+                            <p class="card-text">Sie brauchen einen Kanal für ihr Haus und wissen nicht an welches
+                                Unternehmen
+                                Sie sich wenden sollen?</p>
+                            <div class="text-center">
+                                <br>
+                                <br>
+                                <button class="btn btn-primary" disabled>Hier mehr erfahren!</button>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
+        </section>
 
-
-        </div>
     </div>
-</div>
 
 
 <footer>
 
 
 </footer>
+<script>
+    ScrollReveal().reveal('.display-4',{ delay:500,duration: 1000, origin: 'left',distance:'300px'});
+    ScrollReveal().reveal('.lead',{ delay:600,duration: 2000, origin: 'right',distance:'300px'});
+    ScrollReveal().reveal('.angebotmodule',{ duration: 2000, origin: 'left',distance:'300px',viewFactor:0.3});
+    ScrollReveal().reveal('.card',{ delay:300,duration: 2000, origin: 'right',distance:'300px'});
 
+
+
+</script>
 <script crossorigin="anonymous"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>

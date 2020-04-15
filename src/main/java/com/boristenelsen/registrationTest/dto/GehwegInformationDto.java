@@ -20,6 +20,9 @@ public class GehwegInformationDto {
     @NotNull
     @NotEmpty
     private int gehwegbreite;
+    @NotNull
+    @NotEmpty
+    private int gehweglaenge;
     @NotEmpty
     @NotNull
     private int plattenlaenge;

@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark " th:fragment="header">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark " th:fragment="header">
     <a class="navbar-brand" href="/home"><img alt="portly" src="/portly_transparent_100x40.png"></a>
     <a class="nav-link active" href="/home">Home</a>
     <a class="nav-link " href="/login" sec:authorize="!isAuthenticated()">Anmelden</a>

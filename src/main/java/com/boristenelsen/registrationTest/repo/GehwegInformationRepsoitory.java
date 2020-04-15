@@ -11,4 +11,6 @@ public interface GehwegInformationRepsoitory extends JpaRepository<GehwegInforma
     GehwegInformation findByID(int id);
 
     List<GehwegInformation> findAllByUsername(String email);
+
+    void deleteByID(int id);
 }

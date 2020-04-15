@@ -89,28 +89,24 @@
                 <div class="col-sm-6" th:each="gehwegInformation: ${gehwegInformationList}">
                     <div class="card shadow p-3 mb-5  rounded">
                         <div class="card-body">
+
                             <h5 class="card-title">
-
-
                                 Gehwegabsenkung
-
-
-                                <span style="float:right">
+                            </h5>
+                            <hr>
+                            <p class="card-text">
+                             <span style="float:right">
                                     Status:
 
                                        <span style="color: firebrick;" th:unless="${gehwegInformation.status}">
                                               <i class="fas fa-times-circle "></i>
-                                        </span>
+                                       </span>
 
-                                <span style="color: limegreen;" th:if="${gehwegInformation.status}">
+                                        <span style="color: limegreen;" th:if="${gehwegInformation.status}">
                                               <i class="fas fa-check "></i>
                                         </span>
 
                                 </span>
-
-                            </h5>
-                            <hr>
-                            <p class="card-text">
                             <h6>Ihre Bauvorhaben im Überblick</h6> <br>
                             <b>Wo?: </b><span
                                 th:text="${gehwegInformation.bauvorhabenAdresse.strasse_hausnummer}"></span><br>
