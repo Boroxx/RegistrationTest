@@ -197,3 +197,8 @@ footer a{
 footer a:hover{
     color:dodgerblue;
 }
+
+.listebuendig ul{
+    padding-left: 20px;
+
+}
